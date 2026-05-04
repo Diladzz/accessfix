@@ -142,6 +142,7 @@
 
   .level-image {
     max-width: 280px;
+    justify-content: center;
   }
 
   .level-card-title {

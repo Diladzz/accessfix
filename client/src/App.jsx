@@ -6,11 +6,13 @@ import LevelPage from "./pages/LevelPage";
 import LevelOnePage from "./pages/LevelOnePage";
 import ResultPage from "./pages/ResultPage";
 import LevelTwoPage from "./pages/LevelTwoPage";
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

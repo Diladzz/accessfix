@@ -32,7 +32,7 @@ function LevelPage() {
         <div className="level-card mb-4">
           <div className="row align-items-center g-5">
 
-            <div className="col-lg-5 text-center">
+            <div className="col-lg-5 text-center d-flex justify-content-center">
               <img
                 src={leveloneImage}
                 className="level-image"
@@ -71,7 +71,7 @@ function LevelPage() {
         <div className="level-card">
           <div className="row align-items-center g-5">
 
-            <div className="col-lg-5 text-center">
+            <div className="col-lg-5 text-center d-flex justify-content-center">
               <img
                 src={leveltwoImage}
                 className="level-image"
