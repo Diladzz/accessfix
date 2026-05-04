@@ -78,7 +78,7 @@
 /*FAKE WEBSITE*/
 
 .fake-page {
-  min-height: 500px; /*größer wie echte Seite */
+  min-height: auto; /*größer wie echte Seite */
   background-color: #ffffff;
 }
 
