@@ -116,14 +116,6 @@ function BrokenPagePreview({
             möglichst viele Menschen einfacher nutzbar werden.
           </p>
           
-          <p>
-            Überlege außerdem, wie sich die Seite für unterschiedliche Nutzergruppen
-            anfühlt. Können alle Inhalte schnell erkannt werden? Sind wichtige
-            Informationen klar hervorgehoben? Kleine Anpassungen, wie eine bessere
-            Struktur oder deutlichere Beschriftungen, können einen großen Einfluss
-            auf die Benutzerfreundlichkeit haben.
-          </p>
-          
           <button
             className={`btn btn-secondary ${
               buttonLarge ? "btn-lg" : "btn-sm"
