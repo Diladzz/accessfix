@@ -1,0 +1,174 @@
+/*HERO (OBEN)*/
+
+.level-one-hero {
+  background: linear-gradient(135deg, #f7fffc 0%, #eaf6f1 100%);
+  border: 1px solid #d6e6df;
+  border-radius: 24px;
+  padding: 4rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.level-one-badge {
+  display: inline-block;
+  background-color: #dff3ea;
+  color: #2e5f4f;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.level-one-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.level-one-lead {
+  font-size: 1.35rem;
+  line-height: 1.7;
+  color: #243444;
+}
+
+.level-one-text {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #4f6475;
+}
+
+/*SECTIONS (GLEICHE BREITE)*/
+
+.preview-section,
+.control-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.preview-card,
+.control-card {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d6e6df;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+/*URL FAKE BROWSER*/
+
+.fake-browser {
+  width: 100%;
+  border: 1px solid #d6e6df;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* URL-bar (bild)*/
+.fake-browser-url {
+  width: 100%;
+  height: auto; /* ganze bild sichrtbar für url berecih/foto */
+  display: block;
+  border-bottom: 1px solid #d6e6df; 
+  margin-top: 10px;
+}
+
+
+
+/*FAKE WEBSITE*/
+
+.fake-page {
+  min-height: 500px; /*größer wie echte Seite */
+  background-color: #ffffff;
+}
+
+/*HEADER*/
+.fake-page-header {
+  min-height: 60px; /*klein*/
+  padding: 1rem 1.5rem; /*weniger Abstsnd*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+
+/*TITLE*/
+.fake-page-title {
+  margin: 0;
+  cursor: pointer;
+}
+
+/*CONTENT*/
+.fake-page-content {
+  padding: 3rem 2rem;
+  cursor: pointer;
+}
+
+/*TEXT*/
+.fake-page-content p {
+  max-width: 900px;
+  line-height: 1.8;
+}
+
+/*INTERAKTION (HOVER UND AUSWAHL)*/
+
+.fake-selectable {
+  transition: 0.2s ease;
+}
+
+.fake-selectable:hover {
+  outline: 2px solid #3a5ccc;
+  outline-offset: 2px;
+}
+
+.fake-selected {
+  outline: 2px solid #3a5ccc !important;
+  outline-offset: 2px;
+}
+
+/*CONTROL PANEL*/
+
+.control-panel-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.control-option-box {
+  border: 1px solid #d6e6df;
+  border-radius: 16px;
+  padding: 1.25rem;
+  background-color: #ffffff;
+}
+
+/*MOBILE*/
+
+@media (max-width: 768px) {
+  .level-one-hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .level-one-title {
+    font-size: 2.2rem;
+  }
+
+  .level-one-lead {
+    font-size: 1.15rem;
+  }
+
+  .preview-card,
+  .control-card {
+    padding: 1.5rem;
+  }
+
+  .fake-page-header {
+    padding: 1.5rem;
+  }
+
+  .fake-page-content {
+    padding: 2rem 1.25rem;
+  }
+
+  .fake-browser-url {
+    height: 60px;
+  }
+}

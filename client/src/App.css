@@ -1,0 +1,17 @@
+.btn-primary {
+  background-color: #3A5CCC !important;
+  border-color: #3A5CCC !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  padding: 0.85rem 1.6rem !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #203c97 !important;
+  border-color: #203c97 !important;
+}
+
+.btn {
+  border-radius: 12px !important;
+}

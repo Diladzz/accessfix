@@ -1,0 +1,109 @@
+.learn-hero {
+  background: linear-gradient(135deg, #f7fffc 0%, #eaf6f1 100%);
+  border: 1px solid #d6e6df;
+  border-radius: 24px;
+  padding: 4.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.learn-badge {
+  display: inline-block;
+  background-color: #dff3ea;
+  color: #2e5f4f;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.learn-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.learn-lead {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #243444;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.learn-text {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #4f6475;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.learn-card {
+  background-color: #ffffff;
+  border: 1px solid #d6e6df;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* überschrift des theoretischen teils */
+.learn-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+/* die 4 kästchen für die WCAG prinzipien */
+.principle-item {
+  background-color: #f7fffc;
+  border: 1px solid #d6e6df;
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.principle-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #243444;
+  margin-bottom: 0.5rem;
+}
+
+.principle-item p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4f6475;
+  margin-bottom: 0;
+}
+
+.learn-list {
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+}
+
+.learn-list li {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #4f6475;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .learn-hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .learn-title {
+    font-size: 2.2rem;
+  }
+
+  .learn-lead {
+    font-size: 1.15rem;
+  }
+
+  .learn-card {
+    padding: 1.5rem;
+  }
+}
