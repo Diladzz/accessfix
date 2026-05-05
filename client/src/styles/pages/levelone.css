@@ -73,12 +73,10 @@
   margin-top: 10px;
 }
 
-
-
 /*FAKE WEBSITE*/
 
 .fake-page {
-  min-height: auto; /*größer wie echte Seite */
+  min-height: auto; 
   background-color: #ffffff;
 }
 
