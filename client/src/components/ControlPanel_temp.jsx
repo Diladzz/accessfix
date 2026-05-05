@@ -18,7 +18,7 @@ function ControlPanel({
       <h3 className="control-panel-title mb-4">Bearbeitungsbereich</h3>
 
       <p className="mb-3">
-        Wähle oben ein Element aus, um es zu bearbeiten.
+        Wähle ein Element aus, um es zu bearbeiten.
       </p>
 
       <div className="mb-4">
@@ -169,7 +169,7 @@ function ControlPanel({
             className="btn btn-outline-primary btn-sm"
             onClick={() => setTextDark(true)}
           >
-            Dunkler
+            Schwarz
           </button>
         </div>
       )}

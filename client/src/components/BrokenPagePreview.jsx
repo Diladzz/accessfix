@@ -33,7 +33,7 @@ function BrokenPagePreview({
             headerIsSelected ? "fake-selected" : ""
           }`}
           style={{
-            backgroundColor: headerLight ? "#f3f8f6" : "#4a4a4a",
+            backgroundColor: headerLight ? "#f3f8f6" : "#334155",
           }}
           onClick={() => setSelectedElement("Header")}
         >
@@ -43,8 +43,8 @@ function BrokenPagePreview({
             }`}
             style={{
               fontSize: headingLarge ? "32px" : "22px",
-              fontWeight: headingBold ? "bold" : "normal",
-              color: headingWhite ? "white" : "#222222",
+              fontWeight: headingBold ? "800" : "400",
+              color: headingWhite ? "#ffffff" : "#0f172a",
             }}
             onClick={(e) => {
               e.stopPropagation();
@@ -95,7 +95,7 @@ function BrokenPagePreview({
           }`}
           style={{
             fontSize: textLarge ? "18px" : "13px",
-            color: textDark ? "#222222" : "#666666",
+            color: textDark ? "#0f172a" : "#64748b",
           }}
           onClick={() => setSelectedElement("Text")}
         >
@@ -120,11 +120,7 @@ function BrokenPagePreview({
             className={`btn btn-secondary ${
               buttonLarge ? "btn-lg" : "btn-sm"
             } fake-selectable ${buttonIsSelected ? "fake-selected" : ""}`}
-            style={{
-              border: buttonOutline
-                ? "2px solid black"
-                : "2px solid transparent",
-            }}
+        
             onClick={(e) => {
               e.stopPropagation();
               setSelectedElement("Button");

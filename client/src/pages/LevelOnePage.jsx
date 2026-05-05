@@ -83,17 +83,12 @@ function LevelOnePage() {
         <p className="level-one-lead mb-3">
           Klicke auf ein Element und verbessere es im Bearbeitungsbereich.
         </p>
-
-        <p className="level-one-text">
-          Ziel ist es, typische Probleme der Barrierefreiheit zu erkennen und
-          die Webseite Schritt für Schritt zu optimieren.
-        </p>
       </section>
 
-      <section className="preview-section mb-5">
+      <section className="level-workspace">
         <div className="preview-card">
-          <h2 className="section-title mb-2">Beispiel-Webseite</h2>
-          <p className="helper-text mb-4">
+          <h2 className="section-title">Beispiel-Webseite</h2>
+          <p className="helper-text">
             Klicke auf ein Element, das du verbessern möchtest.
           </p>
 
@@ -112,10 +107,8 @@ function LevelOnePage() {
             buttonOutline={buttonOutline}
           />
         </div>
-      </section>
 
-      <section className="control-section">
-        <div className="control-card">
+        <aside className="control-card">
           <ControlPanel
             selectedElement={selectedElement}
             setHeaderLight={setHeaderLight}
@@ -130,7 +123,7 @@ function LevelOnePage() {
             setButtonOutline={setButtonOutline}
             handleFinish={handleFinish}
           />
-        </div>
+        </aside>
       </section>
     </div>
   );
