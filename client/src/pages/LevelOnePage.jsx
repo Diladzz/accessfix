@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BrokenPagePreview from "../components/BrokenPagePreview";
-import ControlPanel from "../components/ControlPanel_temp";
+import BrokenPagePreview from "../components/level/BrokenPagePreview";
+import ControlPanel from "../components/level/ControlPanel_temp";
 import "../styles/pages/levelone.css";
 
 function LevelOnePage() {

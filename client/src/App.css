@@ -1,7 +1,8 @@
 :root {
-  /*Schrift*/
+  /* schrift, damit alles gleich aussieht */
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
+  /* schriftgrößen, nicht kleiner als 14px machen */
   --text-xs: 0.875rem;   /* 14px */
   --text-sm: 1rem;       /* 16px */
   --text-md: 1.125rem;   /* 18px */
@@ -10,7 +11,7 @@
   --text-2xl: 2rem;      /* 32px */
   --text-3xl: 2.5rem;    /* 40px */
 
-  /*farben: rot-grün-schwäche freundlich*/
+  /* hauptfarben, auch gut bei rot grün schwäche */
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
   --color-surface-soft: #f1f5f9;
@@ -27,9 +28,16 @@
   --color-warning: #ea580c;
   --color-danger: #b91c1c;
 
-  --radius-lg: 24px;
-  --radius-md: 16px;
+  /* kaputte webseite farben */
+  --broken-header-dark: #334155;
+  --broken-header-light: #f8fafc;
+  --broken-text-light: #64748b;
+  --broken-button-bg: #64748b;
+
+  /* runde ecken und schatten */
   --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
 
   --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
@@ -45,6 +53,7 @@ body {
   color: var(--color-text);
 }
 
+/* formular sachen sollen die gleiche schrift haben */
 button,
 input,
 textarea,
@@ -52,11 +61,13 @@ select {
   font: inherit;
 }
 
+/* focus ist wichtig für tastatur nutzer */
 :focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: 3px;
 }
 
+/* bootstrap buttons einheitlich machen */
 .btn {
   border-radius: var(--radius-sm) !important;
   min-height: 44px;
@@ -64,9 +75,11 @@ select {
   font-weight: 700 !important;
 }
 
+/* haupt button */
 .btn-primary {
   background-color: var(--color-primary) !important;
   border-color: var(--color-primary) !important;
+  color: #ffffff !important;
   padding: 0.85rem 1.6rem !important;
 }
 
@@ -76,14 +89,39 @@ select {
   border-color: var(--color-primary-hover) !important;
 }
 
+/* sekundärer button, zb in der kaputten webseite */
+.btn-secondary {
+  background-color: var(--broken-button-bg) !important;
+  border-color: var(--broken-button-bg) !important;
+  color: #ffffff !important;
+}
+
+/* outline buttons im werkzeugkasten */
 .btn-outline-primary {
   color: var(--color-primary) !important;
   border-color: var(--color-primary) !important;
-  background: #ffffff !important;
+  background: var(--color-surface) !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
   color: #ffffff !important;
   background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* kleine buttons dürfen nicht zu klein werden wegen klickfläche */
+.btn-sm {
+  min-height: 44px !important;
+  padding: 0.5rem 0.85rem !important;
+}
+
+/* links sehen gleich aus und sind gut lesbar */
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-hover);
 }
