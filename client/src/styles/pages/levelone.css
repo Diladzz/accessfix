@@ -1,50 +1,14 @@
-.level-one-hero {
-  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 4rem 2rem;
-  box-shadow: var(--shadow-card);
-}
-
-.level-one-badge {
-  display: inline-block;
-  background-color: var(--color-primary-soft);
-  color: var(--color-primary-hover);
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-size: var(--text-sm);
-  font-weight: 800;
-}
-
-.level-one-title {
-  font-size: var(--text-3xl);
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: -0.03em;
-}
-
-.level-one-lead {
-  font-size: var(--text-md);
-  line-height: 1.7;
-  color: var(--color-text);
-}
-
-.level-one-text,
-.helper-text {
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-}
-
+/* layout: links fake webseite, rechts werkzeugkasten */
 .level-workspace {
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 260px;
   gap: 1.5rem;
-  align-items: stretch;
+  align-items: start;
   margin-bottom: 4rem;
 }
 
+/* beide boxen gleich stylen */
 .preview-card,
 .control-card {
   background-color: var(--color-surface);
@@ -54,56 +18,66 @@
   box-shadow: var(--shadow-card);
 }
 
+/* werkzeugkasten bleibt sichtbar beim scroll */
 .control-card {
   position: sticky;
   top: 90px;
 }
 
+/* überschrift über der fake webseite */
 .section-title {
+  color: var(--color-text);
   font-size: var(--text-xl);
   font-weight: 800;
-  color: var(--color-text);
   margin-bottom: 0.4rem;
 }
 
-/* Fake Browser */
+/* kleiner hilfetext */
+.helper-text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
 
+/* browser außen */
 .fake-browser {
   width: 100%;
   border: 1px solid var(--color-border);
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: var(--color-surface);
 }
 
+/* browser leiste bild */
 .fake-browser-url {
- width: 100%;
+  width: 100%;
   height: auto;
   display: block;
   border-bottom: 1px solid var(--color-border);
-  margin-top: 10px;
 }
 
+/* inhalt der fake seite */
 .fake-page {
-  background-color: #ffffff;
+  background-color: var(--color-surface);
 }
 
+/* header oben */
 .fake-page-header {
-  min-height: 60px;
+  min-height: 64px;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* überschrift */
 .fake-page-title {
   margin: 0;
-  cursor: pointer;
 }
 
+/* text bereich */
 .fake-page-content {
   padding: 3rem 2rem;
-  cursor: pointer;
 }
 
 .fake-page-content p {
@@ -111,72 +85,150 @@
   line-height: 1.7;
 }
 
-.fake-button-outline {
-  border: 3px solid #0f172a !important;
-  box-shadow: none !important;
-}
-
-.btn-secondary {
-  background-color: #64748b !important;
-  color: #ffffff !important;
-  border: none !important;
-}
-
-/* Auswahl */
-
+/* alles anklickbare bekommt hand maus */
 .fake-selectable {
-  transition: 0.2s ease;
+  cursor: pointer;
+  transition: outline 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* hover und ausgewählt */
 .fake-selectable:hover,
 .fake-selected {
   outline: 3px solid var(--color-primary) !important;
   outline-offset: 3px;
 }
 
-/* Werkzeugkasten */
+/* zustände der kaputten webseite */
+
+/* header */
+.fake-header-dark {
+  background-color: var(--broken-header-dark);
+}
+
+.fake-header-light {
+  background-color: var(--broken-header-light);
+}
+
+/* titel */
+.fake-title-small {
+  font-size: 1.375rem;
+}
+
+.fake-title-large {
+  font-size: var(--text-2xl);
+}
+
+.fake-title-normal {
+  font-weight: 400;
+}
+
+.fake-title-bold {
+  font-weight: 800;
+}
+
+.fake-title-dark {
+  color: var(--color-text);
+}
+
+.fake-title-white {
+  color: #ffffff;
+}
+
+/* schwarzer rand bei buttons */
+.fake-real-border {
+  border: 3px solid var(--color-text) !important;
+}
+
+/* text zustände */
+.fake-text-small {
+  font-size: 0.8125rem;
+}
+
+.fake-text-large {
+  font-size: var(--text-md);
+}
+
+.fake-text-muted {
+  color: var(--broken-text-light);
+}
+
+.fake-text-dark {
+  color: var(--color-text);
+}
+
+/* willkommen überschrift */
+.fake-content-title-small {
+  font-size: var(--text-md);
+  font-weight: 400;
+}
+
+.fake-content-title-large {
+  font-size: 1.625rem;
+  font-weight: 400;
+}
+
+/* werkzeugkasten */
 
 .control-panel-wrapper {
   font-size: var(--text-sm);
 }
 
 .control-panel-title {
+  color: var(--color-text);
   font-size: var(--text-lg);
   font-weight: 800;
-  color: var(--color-text);
   margin-bottom: 1rem;
 }
 
-.control-panel-wrapper p,
-.control-panel-wrapper div {
-  color: var(--color-text);
+.control-panel-text {
+  color: var(--color-text-muted);
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
+/* zeigt ausgewähltes element */
+.selected-element-box {
+  background-color: var(--color-primary-soft);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* einzelne optionen */
 .control-option-box {
+  background-color: var(--color-surface-soft);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 1rem;
-  background-color: var(--color-surface-soft);
 }
 
-.control-option-box h5 {
+.control-option-box h4 {
+  color: var(--color-text);
   font-size: var(--text-sm);
   font-weight: 800;
-  color: var(--color-text);
+  margin-bottom: 1rem;
 }
 
 .control-option-box p {
-  font-size: var(--text-xs);
   color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  margin-bottom: 0.5rem;
 }
 
+/* bisschen abstand zwischen buttons */
 .control-option-box .btn {
   margin-bottom: 0.5rem;
 }
 
-/* Mobile */
+/* fertig button */
+.control-panel-actions {
+  margin-top: 1.5rem;
+  text-align: right;
+}
 
+/* tablet */
 @media (max-width: 992px) {
   .level-workspace {
     grid-template-columns: 1fr;
@@ -187,18 +239,15 @@
   }
 }
 
+/* handy */
 @media (max-width: 768px) {
-  .level-one-hero {
-    padding: 3rem 1.25rem;
-  }
-
-  .level-one-title {
-    font-size: var(--text-2xl);
-  }
-
   .preview-card,
   .control-card {
     padding: 1.25rem;
+  }
+
+  .fake-page-header {
+    padding: 1rem;
   }
 
   .fake-page-content {

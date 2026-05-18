@@ -125,3 +125,62 @@ a:hover,
 a:focus {
   color: var(--color-primary-hover);
 }
+
+/* gemeinsamer hero bereich für mehrere seiten */
+.level-hero-box {
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* kleine badge oben im hero */
+.page-badge {
+  display: inline-block;
+  background-color: var(--color-surface);
+  color: var(--color-primary-hover);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  font-weight: 800;
+}
+
+/* große überschrift */
+.page-title {
+  color: var(--color-text);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* wichtiger intro text */
+.page-lead {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: 1.7;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* normaler erklärtext */
+.page-text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* handy version */
+@media (max-width: 768px) {
+  .level-hero-box {
+    padding: 3rem 1.25rem;
+  }
+
+  .page-title {
+    font-size: var(--text-2xl);
+  }
+}

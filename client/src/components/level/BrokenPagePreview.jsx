@@ -1,4 +1,4 @@
-// import urlImage from "../assets/url.png";
+import urlImage from "../../assets/url.png";
 
 function BrokenPagePreview({
   selectedElement,
@@ -17,12 +17,6 @@ function BrokenPagePreview({
   const languageLabelOne = languageExpanded ? "English" : "E";
   const languageLabelTwo = languageExpanded ? "Deutsch" : "D";
 
-  const headerIsSelected = selectedElement === "Header";
-  const headingIsSelected = selectedElement === "Überschrift";
-  const languageIsSelected = selectedElement === "Sprache";
-  const textIsSelected = selectedElement === "Text";
-  const buttonIsSelected = selectedElement === "Button";
-
   return (
     <div className="fake-browser">
       <img src={urlImage} alt="Browser-Leiste" className="fake-browser-url" />
@@ -30,22 +24,16 @@ function BrokenPagePreview({
       <div className="fake-page">
         <header
           className={`fake-page-header fake-selectable ${
-            headerIsSelected ? "fake-selected" : ""
-          }`}
-          style={{
-            backgroundColor: headerLight ? "#f3f8f6" : "#334155",
-          }}
+            headerLight ? "fake-header-light" : "fake-header-dark"
+          } ${selectedElement === "Header" ? "fake-selected" : ""}`}
           onClick={() => setSelectedElement("Header")}
         >
           <h2
             className={`fake-page-title fake-selectable ${
-              headingIsSelected ? "fake-selected" : ""
-            }`}
-            style={{
-              fontSize: headingLarge ? "32px" : "22px",
-              fontWeight: headingBold ? "800" : "400",
-              color: headingWhite ? "#ffffff" : "#0f172a",
-            }}
+              headingLarge ? "fake-title-large" : "fake-title-small"
+            } ${headingBold ? "fake-title-bold" : "fake-title-normal"} ${
+              headingWhite ? "fake-title-white" : "fake-title-dark"
+            } ${selectedElement === "Überschrift" ? "fake-selected" : ""}`}
             onClick={(e) => {
               e.stopPropagation();
               setSelectedElement("Überschrift");
@@ -55,55 +43,37 @@ function BrokenPagePreview({
           </h2>
 
           <div className="d-flex gap-2">
-            <button
-              className={`btn btn-light btn-sm fake-selectable ${
-                languageIsSelected ? "fake-selected" : ""
-              }`}
-              style={{
-                outline: languageOutline ? "2px solid #3a5ccc" : "none",
-                outlineOffset: "2px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedElement("Sprache");
-              }}
-            >
-              {languageLabelOne}
-            </button>
-
-            <button
-              className={`btn btn-light btn-sm fake-selectable ${
-                languageIsSelected ? "fake-selected" : ""
-              }`}
-              style={{
-                outline: languageOutline ? "2px solid #3a5ccc" : "none",
-                outlineOffset: "2px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedElement("Sprache");
-              }}
-            >
-              {languageLabelTwo}
-            </button>
+            {[languageLabelOne, languageLabelTwo].map((label) => (
+              <button
+                key={label}
+                className={`btn btn-light btn-sm fake-selectable ${
+                  languageOutline ? "fake-real-border" : ""
+                } ${selectedElement === "Sprache" ? "fake-selected" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedElement("Sprache");
+                }}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </header>
 
         <main
           className={`fake-page-content fake-selectable ${
-            textIsSelected ? "fake-selected" : ""
+            textLarge ? "fake-text-large" : "fake-text-small"
+          } ${textDark ? "fake-text-dark" : "fake-text-muted"} ${
+            selectedElement === "Text" ? "fake-selected" : ""
           }`}
-          style={{
-            fontSize: textLarge ? "18px" : "13px",
-            color: textDark ? "#0f172a" : "#64748b",
-          }}
           onClick={() => setSelectedElement("Text")}
         >
           <h3
-            style={{
-              fontSize: textLarge ? "26px" : "18px",
-              fontWeight: "normal",
-            }}
+            className={
+              textLarge
+                ? "fake-content-title-large"
+                : "fake-content-title-small"
+            }
           >
             Willkommen
           </h3>
@@ -115,12 +85,13 @@ function BrokenPagePreview({
             klare visuelle Struktur. Durch deine Änderungen soll die Seite für
             möglichst viele Menschen einfacher nutzbar werden.
           </p>
-          
+
           <button
             className={`btn btn-secondary ${
               buttonLarge ? "btn-lg" : "btn-sm"
-            } fake-selectable ${buttonIsSelected ? "fake-selected" : ""}`}
-        
+            } fake-selectable ${buttonOutline ? "fake-real-border" : ""} ${
+              selectedElement === "Button" ? "fake-selected" : ""
+            }`}
             onClick={(e) => {
               e.stopPropagation();
               setSelectedElement("Button");

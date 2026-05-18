@@ -1,26 +1,28 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import LevelHero from "../components/level/LevelHero";
+import LevelWorkspace from "../components/level/LevelWorkspace";
 import BrokenPagePreview from "../components/level/BrokenPagePreview";
-import ControlPanel from "../components/level/ControlPanel_temp";
+import ControlPanel from "../components/level/ControlPanel";
+
 import "../styles/pages/levelone.css";
 
 function LevelOnePage() {
   const navigate = useNavigate();
 
+  // merkt sich welches teil von der fake webseite ausgewählt ist
   const [selectedElement, setSelectedElement] = useState("");
 
+  // zustände für die einzelnen verbesserungen
   const [headerLight, setHeaderLight] = useState(false);
-
   const [languageExpanded, setLanguageExpanded] = useState(false);
   const [languageOutline, setLanguageOutline] = useState(false);
-
   const [headingLarge, setHeadingLarge] = useState(false);
   const [headingBold, setHeadingBold] = useState(false);
   const [headingWhite, setHeadingWhite] = useState(false);
-
   const [textLarge, setTextLarge] = useState(false);
   const [textDark, setTextDark] = useState(false);
-
   const [buttonLarge, setButtonLarge] = useState(false);
   const [buttonOutline, setButtonOutline] = useState(false);
 
@@ -61,11 +63,9 @@ function LevelOnePage() {
       feedbackList.push("Der Button braucht noch mehr Größe oder einen sichtbaren Rand.");
     }
 
-    const calculatedScore = Math.round((points / 4) * 100);
-
     navigate("/ergebnis", {
       state: {
-        score: calculatedScore,
+        score: Math.round((points / 4) * 100),
         feedback: feedbackList,
       },
     });
@@ -73,42 +73,37 @@ function LevelOnePage() {
 
   return (
     <div className="container py-5">
-      <section className="level-one-hero text-center mb-5">
-        <p className="level-one-badge mb-3">Level 1</p>
+      <LevelHero
+        badge="Level 1"
+        title="Verbessere eine fehlerhafte Webseite"
+        lead="Klicke auf ein Element und verbessere es im Bearbeitungsbereich."
+      />
 
-        <h1 className="level-one-title mb-4">
-          Verbessere eine fehlerhafte Webseite
-        </h1>
+      <LevelWorkspace
+        preview={
+          <>
+            <h2 className="section-title">Beispiel-Webseite</h2>
+            <p className="helper-text">
+              Klicke auf ein Element, das du verbessern möchtest.
+            </p>
 
-        <p className="level-one-lead mb-3">
-          Klicke auf ein Element und verbessere es im Bearbeitungsbereich.
-        </p>
-      </section>
-
-      <section className="level-workspace">
-        <div className="preview-card">
-          <h2 className="section-title">Beispiel-Webseite</h2>
-          <p className="helper-text">
-            Klicke auf ein Element, das du verbessern möchtest.
-          </p>
-
-          <BrokenPagePreview
-            selectedElement={selectedElement}
-            setSelectedElement={setSelectedElement}
-            headerLight={headerLight}
-            languageExpanded={languageExpanded}
-            languageOutline={languageOutline}
-            headingLarge={headingLarge}
-            headingBold={headingBold}
-            headingWhite={headingWhite}
-            textLarge={textLarge}
-            textDark={textDark}
-            buttonLarge={buttonLarge}
-            buttonOutline={buttonOutline}
-          />
-        </div>
-
-        <aside className="control-card">
+            <BrokenPagePreview
+              selectedElement={selectedElement}
+              setSelectedElement={setSelectedElement}
+              headerLight={headerLight}
+              languageExpanded={languageExpanded}
+              languageOutline={languageOutline}
+              headingLarge={headingLarge}
+              headingBold={headingBold}
+              headingWhite={headingWhite}
+              textLarge={textLarge}
+              textDark={textDark}
+              buttonLarge={buttonLarge}
+              buttonOutline={buttonOutline}
+            />
+          </>
+        }
+        controls={
           <ControlPanel
             selectedElement={selectedElement}
             setHeaderLight={setHeaderLight}
@@ -123,8 +118,8 @@ function LevelOnePage() {
             setButtonOutline={setButtonOutline}
             handleFinish={handleFinish}
           />
-        </aside>
-      </section>
+        }
+      />
     </div>
   );
 }

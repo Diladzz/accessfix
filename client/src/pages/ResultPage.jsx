@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import LevelHero from "../components/level/LevelHero";
 import "../styles/pages/resultpage.css";
 
 function ResultPage() {
@@ -7,28 +8,20 @@ function ResultPage() {
   const score = location.state?.score ?? 0;
   const feedback = location.state?.feedback ?? [];
 
-  let scoreClass = "";
+  let scoreClass = "score-high";
 
   if (score < 30) {
     scoreClass = "score-low";
   } else if (score < 60) {
     scoreClass = "score-medium";
-  } else {
-    scoreClass = "score-high";
   }
 
   return (
     <div className="container py-5">
-      <section className="result-hero text-center mb-5">
-        <p className="result-badge mb-3">Auswertung</p>
-
-        <h1 className="result-title mb-4">Dein Ergebnis</h1>
-
-        <p className="result-lead mb-0">
-          Du hast die Webseite zu <strong>{score}%</strong> barrierefreier
-          gestaltet.
-        </p>
-      </section>
+      <LevelHero
+        title="Dein Ergebnis"
+        lead={`Du hast die Webseite zu ${score}% barrierefreier gestaltet.`}
+      />
 
       <section className="result-card mb-4">
         <div className="text-center mb-4">
@@ -39,8 +32,7 @@ function ResultPage() {
           <h2 className="result-section-title">Lernfeedback</h2>
 
           <p className="result-text mb-0">
-            Hier siehst du, welche Verbesserungen bereits gut umgesetzt wurden
-            und worauf du noch achten kannst.
+            Hier siehst du, was gut umgesetzt wurde und worauf du noch achten kannst.
           </p>
         </div>
 
@@ -59,8 +51,8 @@ function ResultPage() {
         </div>
       </section>
 
-      <div className="result-actions text-center">
-        <Link to="/level/1" className="btn btn-primary result-btn-primary">
+      <div className="result-actions">
+        <Link to="/level/1" className="btn btn-primary">
           Nochmal versuchen
         </Link>
 
