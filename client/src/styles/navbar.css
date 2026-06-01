@@ -1,50 +1,60 @@
 .site-navbar {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: 1rem 0;
-  min-height: 76px;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
 }
 
 .site-navbar .container {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .site-navbar-brand {
-  color: var(--color-text) !important;
+  color: #f8fafc !important;
   font-size: var(--text-xl);
   font-weight: 900;
   line-height: 1;
   padding: 0;
   margin: 0;
+
+  display: flex;
+  align-items: center;
 }
 
 .site-navbar-brand:hover,
 .site-navbar-brand:focus {
-  color: var(--color-primary) !important;
+  color: #93c5fd !important;
 }
 
 .site-navbar-links {
   display: flex;
   align-items: center;
   gap: 1.75rem;
+  height: 100%;
 }
 
 .site-navbar-link {
-  color: var(--color-text) !important;
+  color: #e2e8f0 !important;
   font-size: var(--text-sm);
   font-weight: 800;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+
   display: flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 0;
-  line-height: 1;
+  height: 100%;
 }
 
 .site-navbar-link:hover,
 .site-navbar-link:focus {
-  color: var(--color-primary) !important;
+  color: #93c5fd !important;
 }
 
 .nav-icon {
@@ -54,7 +64,7 @@
 
 @media (max-width: 768px) {
   .site-navbar {
-    min-height: auto;
+    height: auto;
     padding: 1rem 0;
   }
 
@@ -65,8 +75,13 @@
   }
 
   .site-navbar-links {
+    height: auto;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .site-navbar-link {
+    height: auto;
   }
 
   .site-navbar-brand {
