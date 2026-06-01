@@ -85,8 +85,14 @@ function HomePage() {
             Egal ob Anfänger oder Fortgeschrittene – AccessFix hilft dir,
             barrierefreie Webseiten besser zu verstehen.
           </p>
+
+          <Link to="/lernen" className="btn btn-primary home-info-btn">
+            Zur Lernseite
+          </Link>
+
         </div>
       </section>
+
     </main>
   );
 }

@@ -211,6 +211,14 @@
   line-height: 1.6;
 }
 
+.home-info-content {
+  flex: 1;
+}
+
+.home-info-btn {
+  margin-top: 1rem;
+}
+
 @media (max-width: 900px) {
   .home-cards {
     grid-template-columns: 1fr;
