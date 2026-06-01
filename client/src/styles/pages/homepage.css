@@ -43,7 +43,7 @@
   margin: 0 auto 4rem;
 }
 
-.home-badge {
+/* .home-badge {
   display: inline-block;
   margin-bottom: 2rem;
   padding: 0.55rem 1.1rem;
@@ -52,7 +52,7 @@
   color: var(--color-primary-hover);
   font-size: var(--text-sm);
   font-weight: 700;
-}
+} */
 
 .home-title {
   margin: 0;

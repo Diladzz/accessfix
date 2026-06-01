@@ -13,9 +13,6 @@ function HomePage() {
   return (
     <main className="home-page">
       <section className="home-hero">
-        <span className="home-badge">
-          Web-Barrierefreiheit · Interaktiv · Praxisnah
-        </span>
 
         <h1 className="home-title">AccessFix</h1>
 
