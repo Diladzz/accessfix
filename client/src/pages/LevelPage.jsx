@@ -42,12 +42,6 @@ function LevelPage() {
               Lesbarkeit, Kontrast und verständliche Bedienelemente.
             </p>
 
-            <div className="level-topics">
-              <span><FaCheckCircle /> Lesbarkeit</span>
-              <span><FaCheckCircle /> Kontrast</span>
-              <span><FaCheckCircle /> Buttons</span>
-            </div>
-
             <Link to="/level/1" className="btn btn-primary level-button">
               Level starten
               <FaArrowRight className="button-icon-right" />
@@ -73,12 +67,6 @@ function LevelPage() {
               Analysiere komplexere Probleme der Barrierefreiheit und achte auf
               Kontrastverhältnisse, Fokuszustände und klare Struktur.
             </p>
-
-            <div className="level-topics">
-              <span><FaCheckCircle /> Fokus</span>
-              <span><FaCheckCircle /> Struktur</span>
-              <span><FaCheckCircle /> Kontrast</span>
-            </div>
 
             <Link to="/level/2" className="btn btn-primary level-button">
               Level starten

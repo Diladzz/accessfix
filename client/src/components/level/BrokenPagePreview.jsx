@@ -12,7 +12,6 @@ function BrokenPagePreview({
   buttonLarge,
   buttonOutline,
 }) {
-  console.log("buttonOutline in Preview:", buttonOutline);
   const languageLabelOne = languageExpanded ? "English" : "E";
   const languageLabelTwo = languageExpanded ? "Deutsch" : "D";
 
@@ -66,29 +65,33 @@ function BrokenPagePreview({
         </header>
 
         <main
-          className={`fake-page-content fake-selectable ${
+          className={`fake-page-content ${
             textLarge ? "fake-text-large" : "fake-text-small"
-          } ${textDark ? "fake-text-dark" : "fake-text-muted"} ${
-            selectedElement === "Text" ? "fake-selected" : ""
-          }`}
-          onClick={() => setSelectedElement("Text")}
+          } ${textDark ? "fake-text-dark" : "fake-text-muted"}`}
         >
-          <h3
-            className={
-              textLarge
-                ? "fake-content-title-large"
-                : "fake-content-title-small"
-            }
+          <div
+            className={`fake-text-box ${
+              selectedElement === "Text" ? "fake-selected" : ""
+            }`}
+            onClick={() => setSelectedElement("Text")}
           >
-            Willkommen
-          </h3>
+            <h3
+              className={
+                textLarge
+                  ? "fake-content-title-large"
+                  : "fake-content-title-small"
+              }
+            >
+              Willkommen
+            </h3>
 
-          <p>
-            Diese Webseite enthält einige typische Probleme, die du Schritt für
-            Schritt verbessern kannst. Achte dabei besonders auf gut lesbare
-            Texte, ausreichende Kontraste, verständliche Schaltflächen und eine
-            klare visuelle Struktur.
-          </p>
+            <p>
+              Diese Webseite enthält einige typische Probleme, die du Schritt
+              für Schritt verbessern kannst. Achte dabei besonders auf gut
+              lesbare Texte, ausreichende Kontraste, verständliche
+              Schaltflächen und eine klare visuelle Struktur.
+            </p>
+          </div>
 
           <button
             className={`btn btn-secondary fake-selectable ${
@@ -96,7 +99,9 @@ function BrokenPagePreview({
             } ${
               buttonOutline ? "fake-button-accessible" : ""
             } ${
-              selectedElement === "Button" && !buttonOutline ? "fake-selected" : ""
+              selectedElement === "Button" && !buttonOutline
+                ? "fake-selected"
+                : ""
             }`}
             onClick={(e) => {
               e.stopPropagation();

@@ -31,15 +31,12 @@
   margin: 0;
 }
 
-/* zurück und verlassen buttons */
-.level-back-btn,
+/* verlassen button */
 .level-exit-btn {
   flex-shrink: 0;
-
   background-color: var(--color-surface) !important;
   border: 1px solid var(--color-border) !important;
   color: var(--color-text) !important;
-
   padding: 0.75rem 1rem !important;
 }
 
@@ -47,10 +44,6 @@
 .level-exit-btn:focus {
   border-color: var(--color-primary) !important;
   color: var(--color-primary) !important;
-}
-
-.level-exit-btn {
-  color: var(--color-text) !important;
 }
 
 /* layout: links preview, rechts werkzeugkasten */
@@ -105,7 +98,7 @@
   margin-top: 1rem;
 }
 
-/* browser leiste ohne bild */
+/* browser leiste */
 .fake-browser-bar {
   min-height: 52px;
   padding: 0.75rem 1rem;
@@ -180,16 +173,22 @@
   line-height: 1.7;
 }
 
-/* klickbare elemente */
+/* alles anklickbare */
 .fake-selectable {
   cursor: pointer;
   transition: outline 0.2s ease, box-shadow 0.2s ease;
 }
 
-.fake-selectable:hover,
+/* hover nur leicht anzeigen */
+.fake-selectable:hover {
+  outline: 3px dashed #93c5fd !important;
+  outline-offset: 4px;
+}
+
+/* ausgewähltes element */
 .fake-selected {
-  outline: 3px solid var(--color-primary) !important;
-  outline-offset: 3px;
+  outline: 3px dashed #60a5fa !important;
+  outline-offset: 5px;
 }
 
 /* zustände kaputte webseite */
@@ -225,7 +224,7 @@
   color: #ffffff;
 }
 
-/* echter sichtbarer rand für barrierefreien button */
+/* echter sichtbarer rand für verbesserten button */
 .fake-button-accessible {
   border: 2px solid #ffffff !important;
   box-shadow: 0 0 0 3px #323f51 !important;
@@ -293,7 +292,7 @@
   margin-bottom: 1rem;
 }
 
-/* große tool optionen */
+/* tool optionen */
 .tool-option,
 .control-option-box {
   width: 100%;
@@ -376,6 +375,13 @@
   font-size: var(--text-sm);
   line-height: 1.6;
   margin: 0;
+}
+
+/* nur der text soll markiert werden, nicht der ganze main bereich */
+.fake-text-box {
+  width: fit-content;
+  max-width: 900px;
+  padding: 0.5rem;
 }
 
 /* tablet */

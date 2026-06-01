@@ -1,4 +1,4 @@
-/* level 2 nutzt fast den gleichen aufbau wie level 1 */
+/* level 2 nutzt das gleiche grundlayout wie level 1 */
 @import "./levelone.css";
 
 /* fake registrierungsseite */
@@ -36,6 +36,7 @@
 /* formular feld */
 .register-field {
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .register-field label {
@@ -57,22 +58,22 @@
   background-color: var(--color-surface);
 }
 
-/* auswähl rahmen im lernspiel */
-.fake-selected {
-  outline: 3px dashed #60a5fa !important;
-  outline-offset: 5px;
+/* wenn feld angeklickt ist */
+.input-selected-visible {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 4px #dbeafe !important;
 }
 
-/* richtiger fokus nur für das aktuell gewählte feld */
+/* sichtbarer fokus nach verbesserung */
 .input-focus-visible {
-  border: 3px solid var(--color-primary) !important;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
-  background-color: var(--color-surface);
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 4px #bfdbfe !important;
 }
 
-/* pflichtfeld */
+/* pflichtfeld stern */
 .required-text {
   color: var(--color-danger);
+  font-weight: 800;
 }
 
 /* fehler */
@@ -83,10 +84,10 @@
 }
 
 .clear-error {
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* passwort hilfe */
+/* passwort hinweis */
 .password-hint {
   color: var(--color-text-muted);
   font-size: var(--text-xs);
@@ -102,6 +103,7 @@
   color: var(--color-text);
   font-size: var(--text-sm);
   margin: 1rem 0 1.25rem;
+  cursor: pointer;
 }
 
 .register-checkbox input {

@@ -134,18 +134,21 @@ function ControlPanel({
       {selectedElement === "Button" && (
         <>
           <button className="tool-option" onClick={() => setButtonLarge(true)}>
-            <span><FiMaximize2 /></span>
+            <span>
+              <FiMaximize2 />
+            </span>
+
             <div>
               <strong>Button vergrößern</strong>
               <p>Erhöhe die Klickfläche.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => {
-    console.log("RAND WURDE GEKLICKT");
-    setButtonOutline(true);
-  }}>
-            <span><FiSquare /></span>
+          <button className="tool-option" onClick={() => setButtonOutline(true)}>
+            <span>
+              <FiSquare />
+            </span>
+
             <div>
               <strong>Rand hinzufügen</strong>
               <p>Mache den Button deutlicher.</p>
