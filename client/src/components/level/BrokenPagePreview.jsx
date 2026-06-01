@@ -1,5 +1,3 @@
-import urlImage from "../../assets/url.png";
-
 function BrokenPagePreview({
   selectedElement,
   setSelectedElement,
@@ -14,12 +12,19 @@ function BrokenPagePreview({
   buttonLarge,
   buttonOutline,
 }) {
+  console.log("buttonOutline in Preview:", buttonOutline);
   const languageLabelOne = languageExpanded ? "English" : "E";
   const languageLabelTwo = languageExpanded ? "Deutsch" : "D";
 
   return (
     <div className="fake-browser">
-      <img src={urlImage} alt="Browser-Leiste" className="fake-browser-url" />
+      <div className="fake-browser-bar">
+        <span className="browser-dot dot-red"></span>
+        <span className="browser-dot dot-yellow"></span>
+        <span className="browser-dot dot-green"></span>
+
+        <div className="fake-url">https://www.kaputtewebseite.de</div>
+      </div>
 
       <div className="fake-page">
         <header
@@ -42,7 +47,7 @@ function BrokenPagePreview({
             Meine Webseite
           </h2>
 
-          <div className="d-flex gap-2">
+          <div className="fake-language-buttons">
             {[languageLabelOne, languageLabelTwo].map((label) => (
               <button
                 key={label}
@@ -82,15 +87,16 @@ function BrokenPagePreview({
             Diese Webseite enthält einige typische Probleme, die du Schritt für
             Schritt verbessern kannst. Achte dabei besonders auf gut lesbare
             Texte, ausreichende Kontraste, verständliche Schaltflächen und eine
-            klare visuelle Struktur. Durch deine Änderungen soll die Seite für
-            möglichst viele Menschen einfacher nutzbar werden.
+            klare visuelle Struktur.
           </p>
 
           <button
-            className={`btn btn-secondary ${
+            className={`btn btn-secondary fake-selectable ${
               buttonLarge ? "btn-lg" : "btn-sm"
-            } fake-selectable ${buttonOutline ? "fake-real-border" : ""} ${
-              selectedElement === "Button" ? "fake-selected" : ""
+            } ${
+              buttonOutline ? "fake-button-accessible" : ""
+            } ${
+              selectedElement === "Button" && !buttonOutline ? "fake-selected" : ""
             }`}
             onClick={(e) => {
               e.stopPropagation();

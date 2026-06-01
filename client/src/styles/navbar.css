@@ -1,66 +1,75 @@
-/* navbar oben */
 .site-navbar {
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  padding: 0.85rem 0;
+  padding: 1rem 0;
+  min-height: 76px;
 }
 
-/* container links/rechts */
 .site-navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* logo links größer und nicht mittig */
 .site-navbar-brand {
-  color: var(--color-text);
-  font-size: var(--text-xl); /* 24px */
-  font-weight: 800;
-  text-align: left;
-  line-height: 1.2;
+  color: var(--color-text) !important;
+  font-size: var(--text-xl);
+  font-weight: 900;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
 }
 
-/* links rechts */
-.site-navbar-link {
-  color: var(--color-text);
-  font-size: var(--text-md); /* 18px */
-  font-weight: 600;
-  padding: 0.5rem 0.25rem;
-}
-
-/* hover/fokus */
 .site-navbar-brand:hover,
-.site-navbar-brand:focus,
+.site-navbar-brand:focus {
+  color: var(--color-primary) !important;
+}
+
+.site-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.site-navbar-link {
+  color: var(--color-text) !important;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0;
+  line-height: 1;
+}
+
 .site-navbar-link:hover,
 .site-navbar-link:focus {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 
-/* navbar links nebeneinander */
-.site-navbar .d-flex {
-  align-items: center;
-  gap: 1.75rem !important;
+.nav-icon {
+  font-size: var(--text-md);
+  flex-shrink: 0;
 }
 
-/* mobile navbar */
 @media (max-width: 768px) {
+  .site-navbar {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+
   .site-navbar .container {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
-  .site-navbar .d-flex {
+  .site-navbar-links {
     flex-wrap: wrap;
-    gap: 1rem !important;
+    gap: 1rem;
   }
 
   .site-navbar-brand {
-    font-size: var(--text-lg); /* 20px */
-  }
-
-  .site-navbar-link {
-    font-size: var(--text-sm); /* 16px */
+    font-size: var(--text-lg);
   }
 }

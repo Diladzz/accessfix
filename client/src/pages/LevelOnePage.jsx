@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FiArrowLeft, FiLogOut, FiInfo } from "react-icons/fi";
 
-import LevelHero from "../components/level/LevelHero";
 import LevelWorkspace from "../components/level/LevelWorkspace";
 import BrokenPagePreview from "../components/level/BrokenPagePreview";
 import ControlPanel from "../components/level/ControlPanel";
@@ -11,10 +11,8 @@ import "../styles/pages/levelone.css";
 function LevelOnePage() {
   const navigate = useNavigate();
 
-  // merkt sich welches teil von der fake webseite ausgewählt ist
   const [selectedElement, setSelectedElement] = useState("");
 
-  // zustände für die einzelnen verbesserungen
   const [headerLight, setHeaderLight] = useState(false);
   const [languageExpanded, setLanguageExpanded] = useState(false);
   const [languageOutline, setLanguageOutline] = useState(false);
@@ -44,9 +42,7 @@ function LevelOnePage() {
       points += 1;
       feedbackList.push("Header und Überschrift haben jetzt einen guten Kontrast.");
     } else {
-      feedbackList.push(
-        "Header und Überschrift brauchen einen klaren Kontrast, z. B. dunkler Hintergrund mit heller Schrift oder heller Hintergrund mit dunkler Schrift."
-      );
+      feedbackList.push("Header und Überschrift brauchen einen klaren Kontrast.");
     }
 
     if (textLarge && textDark) {
@@ -67,22 +63,31 @@ function LevelOnePage() {
       state: {
         score: Math.round((points / 4) * 100),
         feedback: feedbackList,
+        retryPath: "/level/1",
       },
     });
   }
 
   return (
-    <div className="container py-5">
-      <LevelHero
-        badge="Level 1"
-        title="Verbessere eine fehlerhafte Webseite"
-        lead="Klicke auf ein Element und verbessere es im Bearbeitungsbereich."
-      />
+    <div className="container-fluid level-page-shell">
+      <section className="level-topbar">
+
+        <div className="level-topbar-text">
+          <h1>Level 1: Grundlagen der Lesbarkeit</h1>
+          <p>Verbessere die Beispiel-Webseite und achte auf Barrierefreiheit.</p>
+        </div>
+
+        <Link to="/level" className="btn level-exit-btn">
+          <FiLogOut className="button-icon" />
+          Level verlassen
+        </Link>
+      </section>
 
       <LevelWorkspace
         preview={
           <>
             <h2 className="section-title">Beispiel-Webseite</h2>
+
             <p className="helper-text">
               Klicke auf ein Element, das du verbessern möchtest.
             </p>
@@ -120,6 +125,20 @@ function LevelOnePage() {
           />
         }
       />
+
+      <section className="level-hint-box">
+        <div className="level-hint-icon">
+          <FiInfo />
+        </div>
+
+        <div>
+          <h2>Hinweis</h2>
+          <p>
+            Achte besonders auf lesbare Schriftgrößen, ausreichende Kontraste,
+            verständliche Buttons und eine klare visuelle Struktur.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

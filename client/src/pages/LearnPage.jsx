@@ -1,97 +1,112 @@
 import { Link } from "react-router-dom";
-import LevelHero from "../components/level/LevelHero";
+import {
+  FaEye,
+  FaKeyboard,
+  FaComments,
+  FaCode,
+  FaCheckCircle,
+  FaArrowRight,
+} from "react-icons/fa";
 import "../styles/pages/learnpage.css";
 
 function LearnPage() {
   return (
-    <div className="container py-5">
-      <LevelHero
-        title="Lerne die wichtigsten Prinzipien"
-        lead="Barrierefreiheit im Web bedeutet, dass Webseiten so gestaltet werden, dass möglichst viele Menschen sie wahrnehmen, verstehen und bedienen können."
-        text="Dazu gehören ausreichende Kontraste, gut lesbare Texte, verständliche Buttons und sichtbare Fokuszustände."
-      />
+    <main className="learn-page">
+      <section className="learn-hero">
+        <span className="learn-badge">
+          Grundlagen der Web-Barrierefreiheit
+        </span>
 
-      <section className="learn-card mb-4">
-        <h2 className="learn-section-title mb-3">
-          Die vier WCAG-Prinzipien
-        </h2>
+        <h1 className="learn-title">
+          Lerne die wichtigsten Prinzipien
+        </h1>
+
+        <p className="learn-lead">
+          Barrierefreiheit im Web bedeutet, dass Webseiten für möglichst viele
+          Menschen wahrnehmbar, bedienbar und verständlich sind.
+        </p>
+      </section>
+
+      <section className="learn-card">
+        <h2 className="learn-section-title">Die vier WCAG-Prinzipien</h2>
 
         <p className="learn-card-text">
           Die WCAG beschreiben zentrale Anforderungen an barrierefreie Webseiten.
         </p>
 
-        <div className="principle-item">
-          <h3>1. Wahrnehmbar</h3>
+        <div className="principles-grid">
+          <article className="principle-item">
+            <div className="principle-icon">
+              <FaEye />
+            </div>
+            <h3>Wahrnehmbar</h3>
+            <p>Inhalte müssen so dargestellt werden, dass Nutzerinnen und Nutzer sie wahrnehmen können.</p>
+          </article>
 
-          <p>
-            Inhalte müssen so dargestellt werden, dass Nutzerinnen und Nutzer
-            sie wahrnehmen können.
-          </p>
-        </div>
+          <article className="principle-item">
+            <div className="principle-icon">
+              <FaKeyboard />
+            </div>
+            <h3>Bedienbar</h3>
+            <p>Eine Webseite muss auch ohne Maus bedienbar sein.</p>
+          </article>
 
-        <div className="principle-item">
-          <h3>2. Bedienbar</h3>
+          <article className="principle-item">
+            <div className="principle-icon">
+              <FaComments />
+            </div>
+            <h3>Verständlich</h3>
+            <p>Inhalte und Funktionen sollen klar und nachvollziehbar sein.</p>
+          </article>
 
-          <p>
-            Eine Webseite muss auch ohne Maus bedienbar sein.
-          </p>
-        </div>
-
-        <div className="principle-item">
-          <h3>3. Verständlich</h3>
-
-          <p>
-            Inhalte und Funktionen sollen klar und nachvollziehbar sein.
-          </p>
-        </div>
-
-        <div className="principle-item">
-          <h3>4. Robust</h3>
-
-          <p>
-            Webseiten sollten technisch sauber aufgebaut sein.
-          </p>
+          <article className="principle-item">
+            <div className="principle-icon">
+              <FaCode />
+            </div>
+            <h3>Robust</h3>
+            <p>Webseiten sollten technisch sauber aufgebaut sein.</p>
+          </article>
         </div>
       </section>
 
-      <section className="learn-card mb-4">
-        <h2 className="learn-section-title mb-3">
-          Worauf achtest du in der Übung?
-        </h2>
+      <section className="learn-card">
+        <h2 className="learn-section-title">Worauf achtest du in der Übung?</h2>
 
-        <ul className="learn-list">
-          <li>
-            <strong>Farbkontrast:</strong> Text muss gut lesbar sein.
-          </li>
+        <div className="learn-check-list">
+          <div className="learn-check-item">
+            <FaCheckCircle />
+            <span><strong>Farbkontrast:</strong> Text muss gut lesbar sein.</span>
+          </div>
 
-          <li>
-            <strong>Schriftgröße:</strong> Texte sollten groß genug sein.
-          </li>
+          <div className="learn-check-item">
+            <FaCheckCircle />
+            <span><strong>Schriftgröße:</strong> Texte sollten groß genug sein.</span>
+          </div>
 
-          <li>
-            <strong>Buttons:</strong> Schaltflächen brauchen klare Beschriftungen.
-          </li>
+          <div className="learn-check-item">
+            <FaCheckCircle />
+            <span><strong>Buttons:</strong> Schaltflächen brauchen klare Beschriftungen.</span>
+          </div>
 
-          <li>
-            <strong>Fokuszustände:</strong> Ausgewählte Elemente müssen sichtbar sein.
-          </li>
-        </ul>
+          <div className="learn-check-item">
+            <FaCheckCircle />
+            <span><strong>Fokuszustände:</strong> Ausgewählte Elemente müssen sichtbar sein.</span>
+          </div>
+        </div>
       </section>
 
-      <section className="learn-card text-center">
-        <h2 className="learn-section-title mb-3">
-          Bereit für die Praxis?
-        </h2>
-
-        <p className="page-text mb-4">
-          Im nächsten Schritt verbesserst du selbst eine Webseite.
-        </p>
+      <section className="learn-practice-card">
+        <div>
+          <h2>Bereit für die Praxis?</h2>
+          <p>Im nächsten Schritt verbesserst du selbst eine Webseite.</p>
+        </div>
 
         <Link to="/level" className="btn btn-primary btn-lg">
+          <FaArrowRight className="button-icon" />
           Zu den Levels
         </Link>
       </section>
-    </div>
+    </main>
   );
 }
 

@@ -1,83 +1,178 @@
-/* layout: links fake webseite, rechts werkzeugkasten */
+/* ganze level seite */
+.level-page-shell {
+  padding: 1.5rem;
+}
+
+/* obere level leiste */
+.level-topbar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* text in der oberen leiste */
+.level-topbar-text h1 {
+  color: var(--color-text);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
+.level-topbar-text p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+/* zurück und verlassen buttons */
+.level-back-btn,
+.level-exit-btn {
+  flex-shrink: 0;
+
+  background-color: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+
+  padding: 0.75rem 1rem !important;
+}
+
+.level-exit-btn:hover,
+.level-exit-btn:focus {
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+.level-exit-btn {
+  color: var(--color-text) !important;
+}
+
+/* layout: links preview, rechts werkzeugkasten */
 .level-workspace {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  gap: 1.5rem;
-  align-items: start;
-  margin-bottom: 4rem;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 1rem;
+  align-items: stretch;
 }
 
-/* beide boxen gleich stylen */
+/* karten */
 .preview-card,
 .control-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-card);
 }
 
-/* werkzeugkasten bleibt sichtbar beim scroll */
+/* rechter bereich */
 .control-card {
   position: sticky;
-  top: 90px;
+  top: 1rem;
+  align-self: start;
 }
 
-/* überschrift über der fake webseite */
-.section-title {
+/* überschriften */
+.section-title,
+.control-panel-title {
   color: var(--color-text);
   font-size: var(--text-xl);
   font-weight: 800;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.75rem;
 }
 
-/* kleiner hilfetext */
-.helper-text {
+.helper-text,
+.control-panel-text {
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   line-height: 1.7;
 }
 
-/* browser außen */
+/* fake browser */
 .fake-browser {
   width: 100%;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: var(--color-surface);
+  margin-top: 1rem;
 }
 
-/* browser leiste bild */
-.fake-browser-url {
-  width: 100%;
-  height: auto;
-  display: block;
+/* browser leiste ohne bild */
+.fake-browser-bar {
+  min-height: 52px;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-surface-soft);
 }
 
-/* inhalt der fake seite */
+.browser-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background-color: #ef4444;
+}
+
+.dot-yellow {
+  background-color: #f59e0b;
+}
+
+.dot-green {
+  background-color: #22c55e;
+}
+
+.fake-url {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  padding: 0.45rem 1rem;
+  min-width: 50%;
+}
+
+/* fake webseite */
 .fake-page {
   background-color: var(--color-surface);
 }
 
-/* header oben */
 .fake-page-header {
-  min-height: 64px;
-  padding: 1rem 1.5rem;
+  min-height: 88px;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* überschrift */
 .fake-page-title {
   margin: 0;
 }
 
-/* text bereich */
+.fake-language-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.fake-language-buttons .btn {
+  min-width: 58px;
+}
+
 .fake-page-content {
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem;
 }
 
 .fake-page-content p {
@@ -85,22 +180,19 @@
   line-height: 1.7;
 }
 
-/* alles anklickbare bekommt hand maus */
+/* klickbare elemente */
 .fake-selectable {
   cursor: pointer;
   transition: outline 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* hover und ausgewählt */
 .fake-selectable:hover,
 .fake-selected {
   outline: 3px solid var(--color-primary) !important;
   outline-offset: 3px;
 }
 
-/* zustände der kaputten webseite */
-
-/* header */
+/* zustände kaputte webseite */
 .fake-header-dark {
   background-color: var(--broken-header-dark);
 }
@@ -109,7 +201,6 @@
   background-color: var(--broken-header-light);
 }
 
-/* titel */
 .fake-title-small {
   font-size: 1.375rem;
 }
@@ -134,12 +225,12 @@
   color: #ffffff;
 }
 
-/* schwarzer rand bei buttons */
-.fake-real-border {
-  border: 3px solid var(--color-text) !important;
+/* echter sichtbarer rand für barrierefreien button */
+.fake-button-accessible {
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 3px #323f51 !important;
 }
 
-/* text zustände */
 .fake-text-small {
   font-size: 0.8125rem;
 }
@@ -156,7 +247,6 @@
   color: var(--color-text);
 }
 
-/* willkommen überschrift */
 .fake-content-title-small {
   font-size: var(--text-md);
   font-weight: 400;
@@ -167,69 +257,130 @@
   font-weight: 400;
 }
 
-/* werkzeugkasten */
-
-.control-panel-wrapper {
-  font-size: var(--text-sm);
+/* ausgewähltes element rechts */
+.selected-element-box {
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background-color: #eff6ff;
+  padding: 1rem;
+  margin: 1.25rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.control-panel-title {
+.selected-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.selected-element-box p {
   color: var(--color-text);
-  font-size: var(--text-lg);
+  margin: 0.25rem 0 0;
+}
+
+.control-group-title {
+  color: var(--color-text);
+  font-size: var(--text-md);
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
-.control-panel-text {
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* zeigt ausgewähltes element */
-.selected-element-box {
-  background-color: var(--color-primary-soft);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-/* einzelne optionen */
+/* große tool optionen */
+.tool-option,
 .control-option-box {
-  background-color: var(--color-surface-soft);
+  width: 100%;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.control-option-box h4 {
+.tool-option {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.tool-option:hover,
+.tool-option:focus {
+  border-color: var(--color-primary);
+  background-color: #eff6ff;
+}
+
+.tool-option span {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.tool-option strong {
   color: var(--color-text);
   font-size: var(--text-sm);
-  font-weight: 800;
-  margin-bottom: 1rem;
 }
 
+.tool-option p,
 .control-option-box p {
   color: var(--color-text-muted);
   font-size: var(--text-xs);
-  margin-bottom: 0.5rem;
+  margin: 0.25rem 0 0;
 }
 
-/* bisschen abstand zwischen buttons */
-.control-option-box .btn {
-  margin-bottom: 0.5rem;
-}
-
-/* fertig button */
 .control-panel-actions {
   margin-top: 1.5rem;
-  text-align: right;
+}
+
+/* hinweis unten */
+.level-hint-box {
+  margin-top: 1rem;
+  background-color: #eff6ff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.level-hint-icon {
+  font-size: var(--text-xl);
+}
+
+.level-hint-box h2 {
+  color: var(--color-primary);
+  font-size: var(--text-md);
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
+.level-hint-box p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* tablet */
 @media (max-width: 992px) {
+  .level-topbar,
   .level-workspace {
     grid-template-columns: 1fr;
   }
@@ -241,6 +392,10 @@
 
 /* handy */
 @media (max-width: 768px) {
+  .level-page-shell {
+    padding: 1rem;
+  }
+
   .preview-card,
   .control-card {
     padding: 1.25rem;
@@ -251,6 +406,11 @@
   }
 
   .fake-page-content {
-    padding: 2rem 1.25rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .fake-url {
+    min-width: 0;
+    width: 100%;
   }
 }

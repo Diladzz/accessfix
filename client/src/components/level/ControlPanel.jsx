@@ -1,3 +1,7 @@
+import {
+  FiType, FiEye, FiGlobe, FiMaximize2, FiSquare, FiCheck, FiEdit3, FiLayers, FiSun, FiMoon,
+} from "react-icons/fi";
+
 function ControlPanel({
   selectedElement,
   setHeaderLight,
@@ -21,9 +25,17 @@ function ControlPanel({
       </p>
 
       <div className="selected-element-box">
-        <strong>Ausgewählt:</strong>{" "}
-        {selectedElement || "Noch nichts ausgewählt"}
+        <span className="selected-icon">
+          <FiEdit3 />
+        </span>
+
+        <div>
+          <strong>Ausgewählt:</strong>
+          <p>{selectedElement || "Noch nichts ausgewählt"}</p>
+        </div>
       </div>
+
+      <h4 className="control-group-title">Element bearbeiten</h4>
 
       {!selectedElement && (
         <div className="control-option-box">
@@ -32,117 +44,119 @@ function ControlPanel({
       )}
 
       {selectedElement === "Header" && (
-        <div className="control-option-box">
-          <h4>Header bearbeiten</h4>
-
-          <p>Hintergrund:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setHeaderLight(false)}>
-            Dunkel
-          </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setHeaderLight(true)}>
-            Hell
+        <>
+          <button className="tool-option" onClick={() => setHeaderLight(false)}>
+            <span><FiMoon /></span>
+            <div>
+              <strong>Hintergrund dunkel</strong>
+              <p>Setze den Header dunkel.</p>
+            </div>
           </button>
 
-          <p className="mt-3">Textfarbe:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setHeadingWhite(false)}>
-            Dunkel
+          <button className="tool-option" onClick={() => setHeaderLight(true)}>
+            <span><FiSun /></span>
+            <div>
+              <strong>Hintergrund hell</strong>
+              <p>Setze den Header hell.</p>
+            </div>
           </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setHeadingWhite(true)}>
-            Weiß
-          </button>
-        </div>
+        </>
       )}
 
       {selectedElement === "Sprache" && (
-        <div className="control-option-box">
-          <h4>Sprache bearbeiten</h4>
-
-          <p>Beschriftung:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setLanguageExpanded(false)}>
-            E / D
-          </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setLanguageExpanded(true)}>
-            English / Deutsch
+        <>
+          <button className="tool-option" onClick={() => setLanguageExpanded(true)}>
+            <span><FiGlobe /></span>
+            <div>
+              <strong>Sprache ausschreiben</strong>
+              <p>Nutze verständliche Beschriftungen.</p>
+            </div>
           </button>
 
-          <p className="mt-3">Sichtbarer Rand:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setLanguageOutline(false)}>
-            Aus
+          <button className="tool-option" onClick={() => setLanguageOutline(true)}>
+            <span><FiSquare /></span>
+            <div>
+              <strong>Rand sichtbar machen</strong>
+              <p>Erhöhe die Sichtbarkeit der Buttons.</p>
+            </div>
           </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setLanguageOutline(true)}>
-            An
-          </button>
-        </div>
+        </>
       )}
 
       {selectedElement === "Überschrift" && (
-        <div className="control-option-box">
-          <h4>Überschrift bearbeiten</h4>
-
-          <p>Größe:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setHeadingLarge(false)}>
-            Klein
-          </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setHeadingLarge(true)}>
-            Groß
+        <>
+          <button className="tool-option" onClick={() => setHeadingLarge(true)}>
+            <span><FiType /></span>
+            <div>
+              <strong>Textgröße ändern</strong>
+              <p>Mache die Überschrift größer.</p>
+            </div>
           </button>
 
-          <p className="mt-3">Schriftstärke:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setHeadingBold(false)}>
-            Normal
+          <button className="tool-option" onClick={() => setHeadingBold(true)}>
+            <span><FiEdit3 /></span>
+            <div>
+              <strong>Schrift fetter machen</strong>
+              <p>Erhöhe die Lesbarkeit.</p>
+            </div>
           </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setHeadingBold(true)}>
-            Fett
+
+          <button className="tool-option" onClick={() => setHeadingWhite(true)}>
+            <span><FiEye /></span>
+            <div>
+              <strong>Kontrast verbessern</strong>
+              <p>Nutze helle Schrift auf dunklem Hintergrund.</p>
+            </div>
           </button>
-        </div>
+        </>
       )}
 
       {selectedElement === "Text" && (
-        <div className="control-option-box">
-          <h4>Text bearbeiten</h4>
-
-          <p>Schriftgröße:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setTextLarge(false)}>
-            Klein
-          </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setTextLarge(true)}>
-            Größer
+        <>
+          <button className="tool-option" onClick={() => setTextLarge(true)}>
+            <span><FiType /></span>
+            <div>
+              <strong>Text vergrößern</strong>
+              <p>Erhöhe die Schriftgröße.</p>
+            </div>
           </button>
 
-          <p className="mt-3">Textfarbe:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setTextDark(false)}>
-            Grau
+          <button className="tool-option" onClick={() => setTextDark(true)}>
+            <span><FiEye /></span>
+            <div>
+              <strong>Kontrast verbessern</strong>
+              <p>Mache den Text dunkler.</p>
+            </div>
           </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setTextDark(true)}>
-            Schwarz
-          </button>
-        </div>
+        </>
       )}
 
       {selectedElement === "Button" && (
-        <div className="control-option-box">
-          <h4>Button bearbeiten</h4>
-
-          <p>Größe:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setButtonLarge(false)}>
-            Klein
-          </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setButtonLarge(true)}>
-            Größer
+        <>
+          <button className="tool-option" onClick={() => setButtonLarge(true)}>
+            <span><FiMaximize2 /></span>
+            <div>
+              <strong>Button vergrößern</strong>
+              <p>Erhöhe die Klickfläche.</p>
+            </div>
           </button>
 
-          <p className="mt-3">Rand hinzufügen:</p>
-          <button className="btn btn-outline-primary btn-sm me-2" onClick={() => setButtonOutline(false)}>
-            Aus
+          <button className="tool-option" onClick={() => {
+    console.log("RAND WURDE GEKLICKT");
+    setButtonOutline(true);
+  }}>
+            <span><FiSquare /></span>
+            <div>
+              <strong>Rand hinzufügen</strong>
+              <p>Mache den Button deutlicher.</p>
+            </div>
           </button>
-          <button className="btn btn-outline-primary btn-sm" onClick={() => setButtonOutline(true)}>
-            An
-          </button>
-        </div>
+        </>
       )}
 
       <div className="control-panel-actions">
-        <button className="btn btn-primary" onClick={handleFinish}>
+        <button className="btn btn-primary w-100" onClick={handleFinish}>
+          <FiCheck className="button-icon" />
           Fertig
         </button>
       </div>

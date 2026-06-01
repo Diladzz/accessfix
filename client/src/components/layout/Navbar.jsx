@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
+import { FiHome, FiBookOpen, FiLayers } from "react-icons/fi";
 import "../../styles/navbar.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg site-navbar">
+    <nav className="site-navbar">
       <div className="container">
-        <Link to="/" className="navbar-brand site-navbar-brand">
+        <Link to="/" className="site-navbar-brand">
           AccessFix
         </Link>
 
-        <div className="d-flex gap-3">
-          <Link to="/" className="nav-link site-navbar-link">
+        <div className="site-navbar-links">
+          <Link to="/" className="site-navbar-link">
+            <FiHome className="nav-icon" />
             Startseite
           </Link>
-          <Link to="/lernen" className="nav-link site-navbar-link">
+
+          <Link to="/lernen" className="site-navbar-link">
+            <FiBookOpen className="nav-icon" />
             Lernen
           </Link>
-          <Link to="/level" className="nav-link site-navbar-link">
+
+          <Link to="/level" className="site-navbar-link">
+            <FiLayers className="nav-icon" />
             Level
           </Link>
         </div>

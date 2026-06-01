@@ -40,6 +40,13 @@
   --radius-lg: 24px;
 
   --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.08);
+
+  /* drei kästchen utnen */
+  --color-accent-green: #15803d;
+  --color-accent-green-soft: #dcfce7;
+
+  --color-accent-purple: #6d28d9;
+  --color-accent-purple-soft: #ede9fe;
 }
 
 html {
@@ -51,6 +58,12 @@ body {
   font-family: var(--font-main);
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+/* icons in buttons */
+.button-icon {
+  margin-right: 0.45rem;
+  vertical-align: middle;
 }
 
 /* formular sachen sollen die gleiche schrift haben */
@@ -173,6 +186,7 @@ a:focus {
   margin-left: auto;
   margin-right: auto;
 }
+
 
 /* handy version */
 @media (max-width: 768px) {

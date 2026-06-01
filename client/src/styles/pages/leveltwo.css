@@ -1,0 +1,144 @@
+/* level 2 nutzt fast den gleichen aufbau wie level 1 */
+@import "./levelone.css";
+
+/* fake registrierungsseite */
+.register-page {
+  background-color: var(--color-surface-soft);
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* formular karte */
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.register-card h2 {
+  color: var(--color-text);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.register-intro {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: 1.5rem;
+}
+
+/* formular feld */
+.register-field {
+  margin-bottom: 1rem;
+}
+
+.register-field label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.register-field input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+/* auswähl rahmen im lernspiel */
+.fake-selected {
+  outline: 3px dashed #60a5fa !important;
+  outline-offset: 5px;
+}
+
+/* richtiger fokus nur für das aktuell gewählte feld */
+.input-focus-visible {
+  border: 3px solid var(--color-primary) !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+  background-color: var(--color-surface);
+}
+
+/* pflichtfeld */
+.required-text {
+  color: var(--color-danger);
+}
+
+/* fehler */
+.register-error {
+  color: var(--color-danger);
+  font-size: var(--text-xs);
+  margin: 0.35rem 0 0;
+}
+
+.clear-error {
+  font-weight: 700;
+}
+
+/* passwort hilfe */
+.password-hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  margin: 0.35rem 0 0;
+}
+
+/* checkbox */
+.register-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  margin: 1rem 0 1.25rem;
+}
+
+.register-checkbox input {
+  width: 14px;
+  height: 14px;
+}
+
+.checkbox-large input {
+  width: 22px;
+  height: 22px;
+}
+
+/* kaputter button */
+.register-button {
+  width: 100%;
+  background-color: #94a3b8 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.55rem 1rem !important;
+}
+
+/* verbesserter button */
+.register-button-clear {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  min-height: 48px;
+  font-size: var(--text-sm) !important;
+  border: 2px solid #475569 !important;
+}
+
+/* handy */
+@media (max-width: 768px) {
+  .register-page {
+    padding: 1.5rem 1rem;
+  }
+
+  .register-card {
+    padding: 1.5rem;
+  }
+}

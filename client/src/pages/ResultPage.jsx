@@ -1,5 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
-import LevelHero from "../components/level/LevelHero";
+import {
+  FaLanguage,
+  FaHeading,
+  FaFont,
+  FaRegSquare,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+import FloatingBackground from "../components/effects/FloatingBackground";
 import "../styles/pages/resultpage.css";
 
 function ResultPage() {
@@ -7,6 +15,7 @@ function ResultPage() {
 
   const score = location.state?.score ?? 0;
   const feedback = location.state?.feedback ?? [];
+  const retryPath = location.state?.retryPath ?? "/level";
 
   let scoreClass = "score-high";
 
@@ -16,14 +25,21 @@ function ResultPage() {
     scoreClass = "score-medium";
   }
 
-  return (
-    <div className="container py-5">
-      <LevelHero
-        title="Dein Ergebnis"
-        lead={`Du hast die Webseite zu ${score}% barrierefreier gestaltet.`}
-      />
+  const feedbackIcons = [FaLanguage, FaHeading, FaFont, FaRegSquare];
 
-      <section className="result-card mb-4">
+  return (
+    <main className="result-page">
+      <FloatingBackground />
+
+      <section className="result-header">
+        <h1>Dein Ergebnis</h1>
+        <p>
+          Du hast die Webseite zu <strong>{score}%</strong> barrierefreier
+          gestaltet.
+        </p>
+      </section>
+
+      <section className="result-card">
         <div className="text-center mb-4">
           <div className={`score-circle ${scoreClass} mx-auto mb-3`}>
             <span>{score}%</span>
@@ -32,27 +48,38 @@ function ResultPage() {
           <h2 className="result-section-title">Lernfeedback</h2>
 
           <p className="result-text mb-0">
-            Hier siehst du, was gut umgesetzt wurde und worauf du noch achten kannst.
+            Hier siehst du, was gut umgesetzt wurde und worauf du noch achten
+            kannst.
           </p>
         </div>
 
         <div className="feedback-list">
           {feedback.length > 0 ? (
-            feedback.map((item, index) => (
-              <div key={index} className="feedback-item">
-                {item}
-              </div>
-            ))
+            feedback.map((item, index) => {
+              const Icon = feedbackIcons[index % feedbackIcons.length];
+
+              return (
+                <div key={index} className="feedback-item">
+                  <span className="feedback-icon">
+                    <Icon />
+                  </span>
+                  <span>{item}</span>
+                </div>
+              );
+            })
           ) : (
             <div className="feedback-item">
-              Es sind noch keine Ergebnisse vorhanden.
+              <span className="feedback-icon">
+                <FaCheckCircle />
+              </span>
+              <span>Es sind noch keine Ergebnisse vorhanden.</span>
             </div>
           )}
         </div>
       </section>
 
       <div className="result-actions">
-        <Link to="/level/1" className="btn btn-primary">
+        <Link to={retryPath} className="btn btn-primary">
           Nochmal versuchen
         </Link>
 
@@ -60,7 +87,7 @@ function ResultPage() {
           Zur Startseite
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
 

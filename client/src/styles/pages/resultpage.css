@@ -1,20 +1,57 @@
-/* karte für auswertung */
-.result-card {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-card);
+.result-page {
+  position: relative;
+  min-height: calc(100vh - 56px);
+  padding: 4rem 1rem 3rem;
+  overflow: hidden;
 }
 
-/* kreis mit prozentzahl */
+.result-header {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.result-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+  text-shadow: none;
+}
+
+.result-header::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+}
+
+.result-header p {
+  color: #334155;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.result-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(16px);
+}
+
 .score-circle {
-  width: 150px;
-  height: 150px;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
-  border-width: 8px;
+  border-width: 6px;
   border-style: solid;
   display: flex;
   align-items: center;
@@ -22,72 +59,80 @@
 }
 
 .score-circle span {
-  font-size: var(--text-2xl);
-  font-weight: 800;
+  font-size: 1.45rem;
+  font-weight: 900;
 }
 
-/* schlecht, nicht nur rot sondern auch text/prozent */
 .score-low {
   background-color: #fee2e2;
-  border-color: var(--color-danger);
+  border-color: #b91c1c;
 }
 
 .score-low span {
-  color: var(--color-danger);
+  color: #b91c1c;
 }
 
-/* mittel, orange ist gut unterscheidbar */
 .score-medium {
   background-color: #ffedd5;
-  border-color: var(--color-warning);
+  border-color: #c2410c;
 }
 
 .score-medium span {
-  color: var(--color-warning);
+  color: #c2410c;
 }
 
-/* gut, grün aber dunkel genug */
 .score-high {
   background-color: #dcfce7;
-  border-color: var(--color-success);
+  border-color: #15803d;
 }
 
 .score-high span {
-  color: var(--color-success);
+  color: #15803d;
 }
 
-/* überschrift in der ergebnis karte */
 .result-section-title {
-  color: var(--color-text);
-  font-size: var(--text-xl);
-  font-weight: 800;
+  color: #0f172a;
+  font-size: 1.35rem;
+  font-weight: 900;
 }
 
-/* erklärtext */
 .result-text {
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-  line-height: 1.8;
-}
-
-/* feedback liste */
-.feedback-list {
-  margin-top: 2rem;
-}
-
-/* einzelnes feedback */
-.feedback-item {
-  background-color: var(--color-surface-soft);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  margin-bottom: 0.9rem;
-  color: var(--color-text);
+  color: #475569;
+  font-size: 0.95rem;
   line-height: 1.7;
 }
 
-/* buttons unten */
+.feedback-list {
+  margin-top: 1.7rem;
+}
+
+.feedback-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.8rem;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+.feedback-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #dbeafe;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .result-actions {
+  margin-top: 1.4rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -95,34 +140,32 @@
   align-items: center;
 }
 
-/* zweiter button bleibt ruhig aber sichtbar */
 .result-btn-secondary {
-  border: 1.5px solid var(--color-border) !important;
-  color: var(--color-text) !important;
-  background-color: var(--color-surface) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  background-color: #ffffff !important;
   font-weight: 700 !important;
   padding: 0.85rem 1.6rem !important;
 }
 
 .result-btn-secondary:hover,
 .result-btn-secondary:focus {
-  border-color: var(--color-primary) !important;
-  color: var(--color-primary) !important;
-  background-color: var(--color-primary-soft) !important;
+  border-color: #2563eb !important;
+  color: #2563eb !important;
+  background-color: #eff6ff !important;
 }
 
-/* handy */
 @media (max-width: 768px) {
+  .result-page {
+    padding: 3rem 1rem 2rem;
+  }
+
   .result-card {
-    padding: 1.5rem;
+    padding: 1.4rem;
   }
 
   .score-circle {
-    width: 120px;
-    height: 120px;
-  }
-
-  .score-circle span {
-    font-size: var(--text-xl);
+    width: 90px;
+    height: 90px;
   }
 }
