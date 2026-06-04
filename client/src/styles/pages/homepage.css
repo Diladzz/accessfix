@@ -234,8 +234,29 @@
     padding: 3.5rem 1rem 3rem;
   }
 
+  .home-hero {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+
   .home-title {
-    font-size: clamp(2.8rem, 14vw, 4rem);
+    margin-bottom: 2rem;
+  }
+
+  .home-lead {
+    margin-bottom: 2rem;
+  }
+
+  .home-text {
+    margin-bottom: 3rem;
+  }
+
+  .home-main-button {
+    margin-bottom: 2rem;
+  }
+
+  .home-cards {
+    margin-top: 4rem;
   }
 
   .home-info {

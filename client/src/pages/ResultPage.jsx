@@ -16,6 +16,7 @@ function ResultPage() {
   const score = location.state?.score ?? 0;
   const feedback = location.state?.feedback ?? [];
   const retryPath = location.state?.retryPath ?? "/level";
+  const nextPath = location.state?.nextPath;
 
   let scoreClass = "score-high";
 
@@ -83,9 +84,15 @@ function ResultPage() {
           Nochmal versuchen
         </Link>
 
-        <Link to="/" className="btn result-btn-secondary">
-          Zur Startseite
-        </Link>
+        {nextPath ? (
+          <Link to={nextPath} className="btn result-btn-secondary">
+            Zum nächsten Level
+          </Link>
+        ) : (
+          <Link to="/" className="btn result-btn-secondary">
+            Zur Startseite
+          </Link>
+        )}
       </div>
     </main>
   );

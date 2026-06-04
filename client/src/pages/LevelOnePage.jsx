@@ -64,6 +64,7 @@ function LevelOnePage() {
         score: Math.round((points / 4) * 100),
         feedback: feedbackList,
         retryPath: "/level/1",
+        nextPath: "/level/2",
       },
     });
   }
