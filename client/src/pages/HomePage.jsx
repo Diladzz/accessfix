@@ -74,25 +74,6 @@ function HomePage() {
         </article>
       </section>
 
-      <section className="home-info">
-        <div className="home-info-icon">
-          <FaUsers />
-        </div>
-
-        <div>
-          <h2>Für alle gemacht</h2>
-          <p>
-            Egal ob Anfänger oder Fortgeschrittene – AccessFix hilft dir,
-            barrierefreie Webseiten besser zu verstehen.
-          </p>
-
-          <Link to="/lernen" className="btn btn-primary home-info-btn">
-            Zur Lernseite
-          </Link>
-
-        </div>
-      </section>
-
     </main>
   );
 }

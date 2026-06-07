@@ -1,40 +1,20 @@
 .home-page {
   position: relative;
-  max-width: 1320px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 5rem 1.25rem 4rem;
 
   background:
-    radial-gradient(circle at 15% 20%, rgba(219, 234, 254, 0.4), transparent 25%),
-    radial-gradient(circle at 85% 70%, rgba(191, 219, 254, 0.35), transparent 30%);
+    radial-gradient(circle 700px at 10% 20%, rgba(59, 130, 246, 0.16), transparent 75%),
+    radial-gradient(circle 850px at 90% 45%, rgba(96, 165, 250, 0.18), transparent 75%),
+    radial-gradient(circle 600px at 50% 85%, rgba(147, 197, 253, 0.14), transparent 75%),
+    var(--color-bg);
 }
 
-.home-page::before,
-.home-page::after {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  border-radius: 999px;
-  filter: blur(42px);
-  pointer-events: none;
-}
-
-.home-page::before {
-  width: 220px;
-  height: 220px;
-  left: 8%;
-  top: 28%;
-  background: #bfdbfe;
-  opacity: 0.6;
-}
-
-.home-page::after {
-  width: 260px;
-  height: 260px;
-  right: 6%;
-  bottom: 18%;
-  background: #93c5fd;
-  opacity: 0.5;
+.home-page > * {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-hero {
@@ -43,17 +23,6 @@
   margin: 0 auto 4rem;
 }
 
-/* .home-badge {
-  display: inline-block;
-  margin-bottom: 2rem;
-  padding: 0.55rem 1.1rem;
-  border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-hover);
-  font-size: var(--text-sm);
-  font-weight: 700;
-} */
-
 .home-title {
   margin: 0;
   color: var(--color-text);
@@ -61,6 +30,7 @@
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.06em;
+  margin-bottom: 50px;
 }
 
 .home-lead {
@@ -70,6 +40,7 @@
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.04em;
+  margin-bottom: 50px;
 }
 
 .home-lead span {
@@ -96,6 +67,7 @@
   justify-content: center;
   align-items: center;
   gap: 0.55rem;
+  margin-top: 50px;
 }
 
 .home-cards {
@@ -174,58 +146,73 @@
 }
 
 .home-info {
+  max-width: 1320px;
+  margin: 3rem auto 0;
+  padding: 2rem 2.25rem;
+
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 2rem;
 
-  max-width: 850px;
-  margin: 2rem auto 0;
-  padding: 1.2rem 1.5rem;
-
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(203, 213, 225, 0.5);
-  border-radius: var(--radius-lg);
-  box-shadow: none;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  border: 1px solid rgba(147, 197, 253, 0.25);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
 }
 
 .home-info-icon {
-  color: var(--color-primary);
-  font-size: 1.5rem;
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #93c5fd;
+  font-size: 2rem;
   flex-shrink: 0;
-  opacity: 0.85;
+}
+
+.home-info > div:last-child {
+  flex: 1;
 }
 
 .home-info h2 {
-  margin: 0 0 0.25rem;
-  color: var(--color-text);
-  font-size: 1.2rem;
-  font-weight: 800;
+  margin: 0 0 0.4rem;
+  color: #f8fafc;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
 }
 
 .home-info p {
   margin: 0;
-  color: var(--color-text-muted);
+  max-width: 720px;
+  color: #cbd5e1;
   font-size: var(--text-sm);
-  line-height: 1.6;
-}
-
-.home-info-content {
-  flex: 1;
+  line-height: 1.7;
 }
 
 .home-info-btn {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #1e40af !important;
+}
+
+.home-info-btn:hover,
+.home-info-btn:focus {
+  background: #dbeafe !important;
+  border-color: #dbeafe !important;
+  color: #1e3a8a !important;
 }
 
 @media (max-width: 900px) {
   .home-cards {
     grid-template-columns: 1fr;
-  }
-
-  .home-info {
-    align-items: flex-start;
   }
 }
 
@@ -260,6 +247,14 @@
   }
 
   .home-info {
-    padding: 1.25rem;
+    margin-top: 2rem;
+    padding: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .home-info-btn {
+    width: 100%;
   }
 }

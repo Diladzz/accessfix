@@ -9,6 +9,7 @@ import LevelPage from "./pages/LevelPage";
 import LevelOnePage from "./pages/LevelOnePage";
 import ResultPage from "./pages/ResultPage";
 import LevelTwoPage from "./pages/LevelTwoPage";
+import SimulatorPage from "./pages/SimulatorPage";
 
 import "./App.css";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/level/1" element={<LevelOnePage />} />
         <Route path="/ergebnis" element={<ResultPage />} />
         <Route path="/level/2" element={<LevelTwoPage />} />
+        <Route path="/simulator" element={<SimulatorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

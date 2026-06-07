@@ -50,14 +50,12 @@
 }
 
 html {
-  font-size: 16px;
+  background-color: #0f172a;
 }
 
 body {
+  background-color: var(--color-bg);
   margin: 0;
-  font-family: var(--font-main);
-  background: var(--color-bg);
-  color: var(--color-text);
 }
 
 /* icons in buttons */

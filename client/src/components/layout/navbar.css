@@ -18,35 +18,47 @@
   display: none;
   align-items: center;
   gap: 0.5rem;
-
   height: 44px;
   padding: 0 0.9rem;
-
   border: 1px solid rgba(226, 232, 240, 0.35);
   border-radius: var(--radius-sm);
-
   background: transparent;
   color: #f8fafc;
-
   font-size: 0.85rem;
   font-weight: 700;
+  cursor: pointer;
 }
 
+/* BRAND */
+
 .site-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
   color: #f8fafc !important;
-  font-size: var(--text-xl);
-  font-weight: 900;
+  font-size: 1.2rem;
+  font-weight: 800;
   line-height: 1;
-  padding: 0;
-  margin: 0;
+  text-decoration: none;
+}
+
+.site-navbar-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+
+  margin-right: -14px;
 }
 
 .site-navbar-brand:hover,
-.site-navbar-brand:focus,
-.site-navbar-link:hover,
-.site-navbar-link:focus {
-  color: #93c5fd !important;
+.site-navbar-brand:focus {
+  color: #f8fafc !important;
 }
+
+/* NAV LINKS */
 
 .site-navbar-links {
   display: flex;
@@ -63,13 +75,20 @@
   align-items: center;
   gap: 0.45rem;
   height: 100%;
+  text-decoration: none;
+}
+
+.site-navbar-link:hover,
+.site-navbar-link:focus {
+  color: #93c5fd !important;
 }
 
 .nav-icon {
   font-size: var(--text-md);
 }
 
-/* Overlay */
+/* OVERLAY */
+
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -85,7 +104,8 @@
   pointer-events: auto;
 }
 
-/* Sidebar */
+/* SIDEBAR */
+
 .mobile-sidebar {
   position: fixed;
   top: 0;
@@ -109,10 +129,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #f8fafc;
-  font-size: var(--text-lg);
-  font-weight: 900;
   margin-bottom: 1.5rem;
+}
+
+.mobile-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  color: #f8fafc;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .mobile-sidebar-close {
@@ -126,6 +154,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .mobile-sidebar-link {
@@ -138,6 +167,7 @@
   padding: 0.9rem 1rem;
   font-size: var(--text-sm);
   font-weight: 800;
+  text-decoration: none;
 }
 
 .mobile-sidebar-link:hover,
@@ -150,9 +180,11 @@
   color: #93c5fd !important;
 }
 
+/* MOBILE */
+
 @media (max-width: 768px) {
   .site-navbar {
-    height: 76px;
+    height: 78px;
   }
 
   .site-navbar-container {
@@ -169,7 +201,19 @@
   }
 
   .site-navbar-brand {
-    font-size: var(--text-lg);
+    font-size: 1.1rem;
+  }
+
+  .site-navbar-logo {
+    width: 68px;
+    height: 68px;
+    margin-right: -12px;
+  }
+
+  .mobile-sidebar-brand .site-navbar-logo {
+    width: 68px;
+    height: 68px;
+    margin-right: -12px;
   }
 }
 

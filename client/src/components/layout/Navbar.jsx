@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiHome, FiBookOpen, FiLayers, FiMenu, FiX } from "react-icons/fi";
+import {
+  FiHome,
+  FiBookOpen,
+  FiLayers,
+  FiMenu,
+  FiX,
+  FiEye,
+} from "react-icons/fi";
+
+import logo from "../../assets/logo.png";
 import "./navbar.css";
 
 function Navbar() {
@@ -25,8 +34,17 @@ function Navbar() {
             <span>Menü</span>
           </button>
 
-          <Link to="/" className="site-navbar-brand" onClick={closeMenu}>
-            AccessFix
+          <Link
+            to="/"
+            className="site-navbar-brand"
+            onClick={closeMenu}
+          >
+            <img
+              src={logo}
+              alt=""
+              className="site-navbar-logo"
+            />
+            <span>AccessFix</span>
           </Link>
 
           <div className="site-navbar-links">
@@ -44,6 +62,15 @@ function Navbar() {
               <FiLayers className="nav-icon" />
               Level
             </Link>
+
+            <Link
+              to="/simulator"
+              className="site-navbar-link"
+              onClick={closeMenu}
+            >
+              <FiEye className="nav-icon" />
+              Simulator
+            </Link>
           </div>
         </div>
       </nav>
@@ -55,7 +82,14 @@ function Navbar() {
 
       <aside className={`mobile-sidebar ${menuOpen ? "is-open" : ""}`}>
         <div className="mobile-sidebar-header">
-          <span>AccessFix</span>
+          <div className="mobile-sidebar-brand">
+            <img
+              src={logo}
+              alt=""
+              className="site-navbar-logo"
+            />
+            <span>AccessFix</span>
+          </div>
 
           <button
             type="button"
@@ -67,19 +101,40 @@ function Navbar() {
           </button>
         </div>
 
-        <Link to="/" className="mobile-sidebar-link" onClick={closeMenu}>
+        <Link
+          to="/"
+          className="mobile-sidebar-link"
+          onClick={closeMenu}
+        >
           <FiHome />
           Startseite
         </Link>
 
-        <Link to="/lernen" className="mobile-sidebar-link" onClick={closeMenu}>
+        <Link
+          to="/lernen"
+          className="mobile-sidebar-link"
+          onClick={closeMenu}
+        >
           <FiBookOpen />
           Lernen
         </Link>
 
-        <Link to="/level" className="mobile-sidebar-link" onClick={closeMenu}>
+        <Link
+          to="/level"
+          className="mobile-sidebar-link"
+          onClick={closeMenu}
+        >
           <FiLayers />
           Level
+        </Link>
+
+        <Link
+          to="/simulator"
+          className="mobile-sidebar-link"
+          onClick={closeMenu}
+        >
+          <FiEye />
+          Simulator
         </Link>
       </aside>
     </>

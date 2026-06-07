@@ -1,8 +1,19 @@
 .result-page {
   position: relative;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - 82px);
   padding: 4rem 1rem 3rem;
   overflow: hidden;
+
+  background:
+    radial-gradient(circle 800px at 10% 20%, rgba(59, 130, 246, 0.14), transparent 70%),
+    radial-gradient(circle 900px at 90% 60%, rgba(96, 165, 250, 0.16), transparent 70%),
+    radial-gradient(circle 650px at 50% 100%, rgba(191, 219, 254, 0.16), transparent 75%),
+    var(--color-bg);
+}
+
+.result-page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .result-header {
@@ -43,7 +54,7 @@
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 22px;
   padding: 2rem;
-  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.22);
   backdrop-filter: blur(16px);
 }
 
@@ -157,6 +168,7 @@
 
 @media (max-width: 768px) {
   .result-page {
+    min-height: calc(100vh - 78px);
     padding: 3rem 1rem 2rem;
   }
 

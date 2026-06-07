@@ -1,7 +1,7 @@
 .app-footer {
-  margin-top: 3rem;
-  border-top: 1px solid var(--color-border);
-  background-color: var(--color-surface);
+  margin-top: 0;
+  border-top: 1px solid #1e293b;
+  background: #0f172a;
 }
 
 .app-footer-content {
@@ -17,7 +17,7 @@
 
 .app-footer p {
   margin: 0;
-  color: var(--color-text-muted);
+  color: #cbd5e1;
   font-size: var(--text-xs);
 }
 
@@ -26,8 +26,19 @@
   align-items: center;
   gap: 0.75rem;
 
-  color: var(--color-text-muted);
+  color: #cbd5e1;
   font-size: var(--text-xs);
+}
+
+.app-footer-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.app-footer-links a:hover,
+.app-footer-links a:focus {
+  color: #93c5fd;
 }
 
 @media (max-width: 768px) {
