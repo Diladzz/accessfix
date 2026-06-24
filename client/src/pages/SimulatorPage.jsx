@@ -7,7 +7,7 @@ import {
   FiHeart,
   FiRepeat,
 } from "react-icons/fi";
-import { FaKeyboard, FaTree, FaLeaf } from "react-icons/fa";
+import { FaTree, FaLeaf } from "react-icons/fa";
 
 import "../styles/pages/simulatorpage.css";
 
@@ -15,59 +15,87 @@ function SimulatorPage() {
   const [redGreen, setRedGreen] = useState(false);
   const [lowVision, setLowVision] = useState(false);
   const [lowContrast, setLowContrast] = useState(false);
-  const [keyboard, setKeyboard] = useState(false);
+  const [achromatopsia, setAchromatopsia] = useState(false);
+  const [tunnelVision, setTunnelVision] = useState(false);
 
   const activeEffects = [
     redGreen ? "sim-red-green" : "",
     lowVision ? "sim-low-vision" : "",
     lowContrast ? "sim-low-contrast" : "",
+    achromatopsia ? "sim-achromatopsia" : "",
+    tunnelVision ? "sim-tunnel-vision" : "",
   ].join(" ");
 
   function resetSimulator() {
     setRedGreen(false);
     setLowVision(false);
     setLowContrast(false);
-    setKeyboard(false);
+    setAchromatopsia(false);
+    setTunnelVision(false);
   }
 
-  const activeInfo = keyboard
+  const activeInfo = tunnelVision
     ? {
-        icon: <FaKeyboard />,
-        title: "Tastatur-Navigation",
-        text: "Einige Menschen bedienen Webseiten ohne Maus. Deshalb muss sichtbar sein, welches Element gerade fokussiert ist.",
-        change: "Der Button erhält einen deutlichen Fokusrahmen.",
-        wcag: "2.4.7 Focus Visible",
+        icon: <FiEye />,
+        title: "Tunnelblick",
+        text: "Bei einem eingeschränkten Gesichtsfeld wird nur ein kleiner Bereich in der Mitte deutlich wahrgenommen. Randbereiche können stark eingeschränkt sein.",
+        change: "Der äußere Bereich der Webseite wird abgedunkelt, sodass nur die Mitte gut sichtbar bleibt.",
+        recommendation:
+          "Wichtige Inhalte sollten klar strukturiert und nicht nur am Rand der Seite platziert werden.",
+        wcag: "1.3.2 Meaningful Sequence, 2.4.3 Focus Order",
+      }
+    : achromatopsia
+    ? {
+        icon: <FiEye />,
+        title: "Achromatopsie",
+        text: "Menschen mit Achromatopsie nehmen Farben kaum oder gar nicht wahr. Inhalte erscheinen hauptsächlich in Graustufen.",
+        change:
+          "Farben verschwinden fast vollständig. Unterschiede zwischen grünen, roten oder gelben Elementen sind schwer erkennbar.",
+        recommendation:
+          "Informationen sollten nicht nur über Farbe vermittelt werden, sondern zusätzlich durch Text, Symbole oder Struktur.",
+        wcag: "1.4.1 Use of Color",
       }
     : lowContrast
     ? {
         icon: <FiEye />,
         title: "Kontrastschwäche",
-        text: "Bei geringem Kontrast heben sich Texte und Bedienelemente schlechter vom Hintergrund ab.",
-        change: "Die Webseite wirkt blasser und Inhalte sind schwerer lesbar.",
+        text: "Bei einer Kontrastschwäche werden Unterschiede zwischen Vordergrund und Hintergrund schlechter wahrgenommen.",
+        change:
+          "Texte, Buttons und Flächen wirken blasser und sind schwieriger voneinander zu unterscheiden.",
+        recommendation:
+          "Texte und Bedienelemente sollten ausreichend Kontrast zum Hintergrund haben.",
         wcag: "1.4.3 Contrast Minimum",
       }
     : lowVision
     ? {
         icon: <FiEye />,
         title: "Sehschwäche",
-        text: "Bei eingeschränkter Sehschärfe werden kleine Texte und Details schwerer wahrnehmbar.",
-        change: "Die Vorschau wird leicht unscharf dargestellt.",
+        text: "Menschen mit Sehschwäche nehmen kleine Texte und feine Details oft unscharf oder weniger deutlich wahr.",
+        change:
+          "Die Webseite wird unscharf dargestellt. Besonders kleine Texte und Details sind schwerer lesbar.",
+        recommendation:
+          "Texte sollten gut lesbar, ausreichend groß und klar strukturiert sein.",
         wcag: "1.4.4 Resize Text",
       }
     : redGreen
     ? {
         icon: <FiAlertTriangle />,
         title: "Rot-Grün-Schwäche",
-        text: "Rot und Grün können schwer unterscheidbar sein. Informationen sollten deshalb nicht nur über Farbe vermittelt werden.",
+        text: "Bei einer Rot-Grün-Schwäche können rote und grüne Farbtöne schwer voneinander unterschieden werden.",
         change:
-          "Grüne Elemente wirken gelblicher, rote Elemente wirken bräunlicher.",
+          "Grüne Elemente wirken gelblicher, rote Elemente wirken bräunlicher. Farbunterschiede werden weniger eindeutig.",
+        recommendation:
+          "Wichtige Informationen sollten nicht ausschließlich durch Rot oder Grün dargestellt werden.",
         wcag: "1.4.1 Use of Color",
       }
     : {
         icon: <FiInfo />,
         title: "Warum ist das wichtig?",
-        text: "Viele Menschen nehmen Webseiten unterschiedlich wahr. Der Simulator zeigt, warum Kontrast, Fokus und klare Strukturen wichtig sind.",
-        change: "Aktiviere links eine Einschränkung, um die Auswirkungen zu sehen.",
+        text: "Menschen nehmen Webseiten unterschiedlich wahr. Der Simulator zeigt, wie visuelle Einschränkungen die Nutzung beeinflussen können.",
+        change:
+          "Aktiviere links eine Einschränkung, um die Auswirkungen auf die Beispiel-Webseite zu sehen.",
+        recommendation:
+          "Barrierefreie Webseiten sollten klar, kontrastreich und verständlich gestaltet sein.",
         wcag: "WCAG: wahrnehmbar, bedienbar, verständlich",
       };
 
@@ -76,8 +104,8 @@ function SimulatorPage() {
       <section className="simulator-header">
         <h1>Accessibility Simulator</h1>
         <p>
-          Erlebe, wie sich eine Webseite mit verschiedenen Einschränkungen
-          verändert.
+          Erlebe, wie sich eine Webseite mit verschiedenen visuellen
+          Einschränkungen verändert.
         </p>
       </section>
 
@@ -113,11 +141,20 @@ function SimulatorPage() {
           </label>
 
           <label className="sim-option">
-            <span>Tastatur-Navigation</span>
+            <span>Achromatopsie</span>
             <input
               type="checkbox"
-              checked={keyboard}
-              onChange={() => setKeyboard(!keyboard)}
+              checked={achromatopsia}
+              onChange={() => setAchromatopsia(!achromatopsia)}
+            />
+          </label>
+
+          <label className="sim-option">
+            <span>Tunnelblick</span>
+            <input
+              type="checkbox"
+              checked={tunnelVision}
+              onChange={() => setTunnelVision(!tunnelVision)}
             />
           </label>
 
@@ -177,9 +214,7 @@ function SimulatorPage() {
                   </div>
                 </div>
 
-                <button className={keyboard ? "demo-focus" : ""}>
-                  Produkte entdecken
-                </button>
+                <button>Produkte entdecken</button>
               </div>
 
               <div className="plant-card">
@@ -216,6 +251,11 @@ function SimulatorPage() {
           <div className="change-box">
             <strong>Was verändert sich?</strong>
             <p>{activeInfo.change}</p>
+          </div>
+
+          <div className="recommendation-box">
+            <strong>Empfehlung</strong>
+            <p>{activeInfo.recommendation}</p>
           </div>
 
           <div className="wcag-box">

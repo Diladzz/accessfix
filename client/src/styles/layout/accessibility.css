@@ -1,8 +1,25 @@
 /* Button rechts oben */
-.access-button svg {
-  width: 38px;
-  height: 38px;
-  display: block;
+.access-button {
+  position: fixed;
+  top: 95px;
+  right: 24px;
+  z-index: 9999;
+
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+
+  background-color: #3a5ccc;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
 .access-button:hover {
@@ -230,23 +247,29 @@ body.access-dark-contrast .access-option.active {
 }
 
 /* Monochrom */
-/* Overlay macht die Seite grau, ohne fixed/sticky kaputt zu machen */
+/* Overlay färbt alles grau, ohne fixed kaputt zu machen */
 body.access-monochrome::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 9000;
+  z-index: 9998;
   pointer-events: none;
   backdrop-filter: grayscale(100%);
 }
 
-/* Eingabehilfen müssen über dem Overlay liegen */
+/* Panel und Button bleiben über dem Overlay */
 .access-button {
   z-index: 10000;
 }
 
 .access-panel {
   z-index: 10001;
+}
+
+/* Panel selbst auch monochrom machen */
+body.access-monochrome .access-panel,
+body.access-monochrome .access-button {
+  filter: grayscale(100%);
 }
 
 /* Links hervorheben */
@@ -286,36 +309,6 @@ body.access-dark-contrast.access-highlight-headings h2,
 body.access-dark-contrast.access-highlight-headings h3 {
   background-color: #1f2937 !important;
   outline-color: #60a5fa;
-}
-
-/* Schriftgröße vergrößern */
-/* große Hero-Texte wie AccessFix und home-lead werden nicht verändert */
-body.access-large-text .home-text,
-body.access-large-text .home-note,
-body.access-large-text .home-card p,
-body.access-large-text .learn-text,
-body.access-large-text .level-text,
-body.access-large-text .result-text,
-body.access-large-text .feedback-item,
-body.access-large-text .level-card-text,
-body.access-large-text .learn-list li,
-body.access-large-text .principle-item p,
-body.access-large-text .control-option-box p,
-body.access-large-text .helper-text,
-body.access-large-text li {
-  font-size: 1.2em !important;
-  line-height: 1.9 !important;
-}
-
-/* Buttons größer machen */
-body.access-large-text button,
-body.access-large-text .btn {
-  font-size: 1.1em !important;
-}
-
-/* normale Links größer, aber Navbar bleibt gleich */
-body.access-large-text a:not(.navbar-brand):not(.nav-link):not(.btn) {
-  font-size: 1.15em !important;
 }
 
 /* Mobile */

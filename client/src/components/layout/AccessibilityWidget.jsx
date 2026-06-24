@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../../styles/layout/accessibility.css";
 
-import { MdAccessibility } from "react-icons/md";
+import { IoAccessibility } from "react-icons/io5";
 import { FaTimes } from "react-icons/fa";
 
 function AccessibilityWidget() {
@@ -10,7 +10,6 @@ function AccessibilityWidget() {
   const [monochrome, setMonochrome] = useState(false);
   const [highlightLinks, setHighlightLinks] = useState(false);
   const [highlightHeadings, setHighlightHeadings] = useState(false);
-  const [largeText, setLargeText] = useState(false);
 
   function toggleBodyClass(className, value) {
     document.body.classList.toggle(className, value);
@@ -40,25 +39,17 @@ function AccessibilityWidget() {
     toggleBodyClass("access-highlight-headings", newValue);
   }
 
-  function handleLargeText() {
-    const newValue = !largeText;
-    setLargeText(newValue);
-    toggleBodyClass("access-large-text", newValue);
-  }
-
   function resetAll() {
     setDarkContrast(false);
     setMonochrome(false);
     setHighlightLinks(false);
     setHighlightHeadings(false);
-    setLargeText(false);
 
     document.body.classList.remove(
       "access-dark-contrast",
       "access-monochrome",
       "access-highlight-links",
       "access-highlight-headings",
-      "access-large-text"
     );
   }
 
@@ -70,7 +61,7 @@ function AccessibilityWidget() {
         aria-label="Eingabehilfen öffnen"
         title="Eingabehilfen öffnen"
       >
-        <MdAccessibility />
+        <IoAccessibility   />
         <span className="access-tooltip">
           Eingabehilfen öffnen
         </span>
@@ -133,17 +124,6 @@ function AccessibilityWidget() {
               onClick={handleHeadings}
             >
               Überschriften hervorheben
-            </button>
-
-            <button
-              className={
-                largeText
-                  ? "access-option active"
-                  : "access-option"
-              }
-              onClick={handleLargeText}
-            >
-              Schriftgröße vergrößern
             </button>
 
             <button

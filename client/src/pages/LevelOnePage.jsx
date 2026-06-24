@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiArrowLeft, FiLogOut, FiInfo } from "react-icons/fi";
+import { FiLogOut, FiInfo } from "react-icons/fi";
 
 import LevelWorkspace from "../components/level/LevelWorkspace";
 import BrokenPagePreview from "../components/level/BrokenPagePreview";
@@ -25,43 +25,70 @@ function LevelOnePage() {
   const [buttonOutline, setButtonOutline] = useState(false);
 
   function handleFinish() {
-    let points = 0;
-    const feedbackList = [];
+    const feedbackList = [
+      {
+        label: "Sprache ausgeschrieben",
+        success: languageExpanded,
+        text: languageExpanded
+          ? "Die Sprachbuttons sind ausgeschrieben und verständlicher."
+          : "Die Sprachbuttons sollten ausgeschrieben werden.",
+      },
+      {
+        label: "Überschrift vergrößert",
+        success: headingLarge,
+        text: headingLarge
+          ? "Die Überschrift ist größer und besser wahrnehmbar."
+          : "Die Überschrift sollte größer dargestellt werden.",
+      },
+      {
+        label: "Schriftstärke erhöht",
+        success: headingBold,
+        text: headingBold
+          ? "Die Überschrift ist durch die stärkere Schrift besser lesbar."
+          : "Die Überschrift sollte stärker hervorgehoben werden.",
+      },
+      {
+        label: "Kontrast im Header verbessert",
+        success: headingWhite,
+        text: headingWhite
+          ? "Die weiße Schrift verbessert den Kontrast auf dem dunklen Header."
+          : "Die Schrift im Header sollte heller sein.",
+      },
+      {
+        label: "Fließtext vergrößert",
+        success: textLarge,
+        text: textLarge
+          ? "Der Fließtext ist größer und dadurch besser lesbar."
+          : "Der Fließtext sollte größer dargestellt werden.",
+      },
+      {
+        label: "Textfarbe verbessert",
+        success: textDark,
+        text: textDark
+          ? "Die dunklere Textfarbe verbessert die Lesbarkeit."
+          : "Die Textfarbe sollte dunkler sein.",
+      },
+      {
+        label: "Button vergrößert",
+        success: buttonLarge,
+        text: buttonLarge
+          ? "Der Button hat eine größere Klickfläche."
+          : "Der Button sollte größer sein.",
+      },
+      {
+        label: "Button hervorgehoben",
+        success: buttonOutline,
+        text: buttonOutline
+          ? "Der Button ist durch den Rand besser erkennbar."
+          : "Der Button sollte durch einen sichtbaren Rand hervorgehoben werden.",
+      },
+    ];
 
-    const headerContrastGood =
-      (headerLight && !headingWhite) || (!headerLight && headingWhite);
-
-    if (languageExpanded && languageOutline) {
-      points += 1;
-      feedbackList.push("Die Sprachbuttons sind verständlich beschriftet und gut sichtbar.");
-    } else {
-      feedbackList.push("Die Sprachbuttons sollten ausgeschrieben und visuell gut erkennbar sein.");
-    }
-
-    if (headerContrastGood && headingLarge && headingBold) {
-      points += 1;
-      feedbackList.push("Header und Überschrift haben jetzt einen guten Kontrast.");
-    } else {
-      feedbackList.push("Header und Überschrift brauchen einen klaren Kontrast.");
-    }
-
-    if (textLarge && textDark) {
-      points += 1;
-      feedbackList.push("Der Fließtext ist jetzt besser lesbar.");
-    } else {
-      feedbackList.push("Der Fließtext ist noch zu klein oder zu kontrastarm.");
-    }
-
-    if (buttonLarge && buttonOutline) {
-      points += 1;
-      feedbackList.push("Der Button ist jetzt besser sichtbar und leichter nutzbar.");
-    } else {
-      feedbackList.push("Der Button braucht noch mehr Größe oder einen sichtbaren Rand.");
-    }
+    const points = feedbackList.filter((item) => item.success).length;
 
     navigate("/ergebnis", {
       state: {
-        score: Math.round((points / 4) * 100),
+        score: Math.round((points / feedbackList.length) * 100),
         feedback: feedbackList,
         retryPath: "/level/1",
         nextPath: "/level/2",
@@ -72,7 +99,6 @@ function LevelOnePage() {
   return (
     <div className="container-fluid level-page-shell">
       <section className="level-topbar">
-
         <div className="level-topbar-text">
           <h1>Level 1: Grundlagen der Lesbarkeit</h1>
           <p>Verbessere die Beispiel-Webseite und achte auf Barrierefreiheit.</p>
@@ -112,7 +138,6 @@ function LevelOnePage() {
         controls={
           <ControlPanel
             selectedElement={selectedElement}
-
             languageExpanded={languageExpanded}
             languageOutline={languageOutline}
             headingLarge={headingLarge}
@@ -122,7 +147,6 @@ function LevelOnePage() {
             textDark={textDark}
             buttonLarge={buttonLarge}
             buttonOutline={buttonOutline}
-
             setLanguageExpanded={setLanguageExpanded}
             setLanguageOutline={setLanguageOutline}
             setHeadingLarge={setHeadingLarge}

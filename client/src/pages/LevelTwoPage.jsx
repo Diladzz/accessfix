@@ -22,54 +22,63 @@ function LevelTwoPage() {
   const [buttonClear, setButtonClear] = useState(false);
 
   function handleFinish() {
-    let points = 0;
-    const feedbackList = [];
+    const feedbackList = [
+      {
+        label: "Labels sichtbar",
+        success: labelsVisible,
+        text: labelsVisible
+          ? "Die Eingabefelder haben sichtbare Labels."
+          : "Die Eingabefelder brauchen sichtbare Labels.",
+      },
+      {
+        label: "Pflichtfelder markiert",
+        success: requiredVisible,
+        text: requiredVisible
+          ? "Pflichtfelder sind klar gekennzeichnet."
+          : "Pflichtfelder sollten deutlich markiert werden.",
+      },
+      {
+        label: "Fokus sichtbar",
+        success: focusVisible,
+        text: focusVisible
+          ? "Der Fokuszustand ist deutlich sichtbar."
+          : "Der Fokuszustand sollte besser sichtbar sein.",
+      },
+      {
+        label: "Fehlermeldung verständlich",
+        success: errorClear,
+        text: errorClear
+          ? "Die Fehlermeldung erklärt das Problem verständlich."
+          : "Die Fehlermeldung sollte genauer erklären, was falsch ist.",
+      },
+      {
+        label: "Passwort-Hinweis vorhanden",
+        success: passwordHint,
+        text: passwordHint
+          ? "Der Passwort-Hinweis unterstützt die Eingabe."
+          : "Ein Hinweis zum Passwort würde die Eingabe erleichtern.",
+      },
+      {
+        label: "Checkbox vergrößert",
+        success: checkboxLarge,
+        text: checkboxLarge
+          ? "Die Checkbox hat eine größere Klickfläche."
+          : "Die Checkbox sollte größer und leichter bedienbar sein.",
+      },
+      {
+        label: "Button verbessert",
+        success: buttonClear,
+        text: buttonClear
+          ? "Der Button ist klarer und verständlicher gestaltet."
+          : "Der Button sollte deutlicher erkennbar sein.",
+      },
+    ];
 
-    if (labelsVisible) {
-      points += 1;
-      feedbackList.push("Die Eingabefelder haben jetzt sichtbare Labels.");
-    } else {
-      feedbackList.push("Die Eingabefelder brauchen sichtbare Labels.");
-    }
-
-    if (requiredVisible) {
-      points += 1;
-      feedbackList.push("Pflichtfelder sind jetzt besser erkennbar.");
-    } else {
-      feedbackList.push("Pflichtfelder sollten klar gekennzeichnet sein.");
-    }
-
-    if (focusVisible) {
-      points += 1;
-      feedbackList.push("Der Fokuszustand ist jetzt sichtbar.");
-    } else {
-      feedbackList.push("Der Fokuszustand sollte deutlicher sichtbar sein.");
-    }
-
-    if (errorClear) {
-      points += 1;
-      feedbackList.push("Die Fehlermeldung ist jetzt verständlicher.");
-    } else {
-      feedbackList.push("Fehlermeldungen sollten genau erklären, was falsch ist.");
-    }
-
-    if (passwordHint) {
-      points += 1;
-      feedbackList.push("Der Passwort-Hinweis hilft bei der Eingabe.");
-    } else {
-      feedbackList.push("Ein Hinweis zum Passwort würde die Eingabe erleichtern.");
-    }
-
-    if (checkboxLarge && buttonClear) {
-      points += 1;
-      feedbackList.push("Checkbox und Button sind jetzt leichter bedienbar.");
-    } else {
-      feedbackList.push("Checkbox und Button brauchen noch bessere Bedienbarkeit.");
-    }
+    const points = feedbackList.filter((item) => item.success).length;
 
     navigate("/ergebnis", {
       state: {
-        score: Math.round((points / 6) * 100),
+        score: Math.round((points / feedbackList.length) * 100),
         feedback: feedbackList,
         retryPath: "/level/2",
       },
@@ -114,7 +123,6 @@ function LevelTwoPage() {
         controls={
           <ControlPanelLevelTwo
             selectedElement={selectedElement}
-
             labelsVisible={labelsVisible}
             requiredVisible={requiredVisible}
             focusVisible={focusVisible}
@@ -122,7 +130,6 @@ function LevelTwoPage() {
             passwordHint={passwordHint}
             checkboxLarge={checkboxLarge}
             buttonClear={buttonClear}
-
             setLabelsVisible={setLabelsVisible}
             setRequiredVisible={setRequiredVisible}
             setFocusVisible={setFocusVisible}

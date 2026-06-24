@@ -90,20 +90,6 @@ function ControlPanel({
               <p>Ersetzt Abkürzungen durch verständliche Bezeichnungen.</p>
             </div>
           </button>
-
-          <button
-            className={`tool-option ${languageOutline ? "active" : ""}`}
-            onClick={() => setLanguageOutline((prev) => !prev)}
-          >
-            <span>
-              <FiSquare />
-            </span>
-
-            <div>
-              <strong>Sprachbuttons hervorheben</strong>
-              <p>Macht die Auswahl leichter erkennbar.</p>
-            </div>
-          </button>
         </>
       )}
 

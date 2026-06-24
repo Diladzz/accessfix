@@ -1,11 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import {
-  FaLanguage,
-  FaHeading,
-  FaFont,
-  FaRegSquare,
-  FaCheckCircle,
-} from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 import "../styles/pages/resultpage.css";
 
@@ -25,11 +19,8 @@ function ResultPage() {
     scoreClass = "score-medium";
   }
 
-  const feedbackIcons = [FaLanguage, FaHeading, FaFont, FaRegSquare];
-
   return (
     <main className="result-page">
-
       <section className="result-header">
         <h1>Dein Ergebnis</h1>
         <p>
@@ -47,31 +38,53 @@ function ResultPage() {
           <h2 className="result-section-title">Lernfeedback</h2>
 
           <p className="result-text mb-0">
-            Hier siehst du, was gut umgesetzt wurde und worauf du noch achten
-            kannst.
+            Hier siehst du, welche Verbesserungen bereits umgesetzt wurden und
+            welche Punkte noch fehlen.
           </p>
         </div>
 
         <div className="feedback-list">
           {feedback.length > 0 ? (
             feedback.map((item, index) => {
-              const Icon = feedbackIcons[index % feedbackIcons.length];
+              const isOldFeedback = typeof item === "string";
+              const success = isOldFeedback ? false : item.success;
 
               return (
-                <div key={index} className="feedback-item">
+                <div
+                  key={index}
+                  className={`feedback-item ${
+                    success ? "feedback-success" : "feedback-error"
+                  }`}
+                >
                   <span className="feedback-icon">
-                    <Icon />
+                    {success ? <FaCheckCircle /> : <FaTimesCircle />}
                   </span>
-                  <span>{item}</span>
+
+                  <div>
+                    <strong>
+                      {isOldFeedback
+                        ? "Rückmeldung"
+                        : item.label}
+                    </strong>
+                    <p>
+                      {isOldFeedback
+                        ? item
+                        : item.text}
+                    </p>
+                  </div>
                 </div>
               );
             })
           ) : (
-            <div className="feedback-item">
+            <div className="feedback-item feedback-error">
               <span className="feedback-icon">
-                <FaCheckCircle />
+                <FaTimesCircle />
               </span>
-              <span>Es sind noch keine Ergebnisse vorhanden.</span>
+
+              <div>
+                <strong>Keine Ergebnisse</strong>
+                <p>Es sind noch keine Ergebnisse vorhanden.</p>
+              </div>
             </div>
           )}
         </div>
