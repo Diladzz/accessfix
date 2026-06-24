@@ -94,9 +94,8 @@ function SimulatorPage() {
         text: "Menschen nehmen Webseiten unterschiedlich wahr. Der Simulator zeigt, wie visuelle Einschränkungen die Nutzung beeinflussen können.",
         change:
           "Aktiviere links eine Einschränkung, um die Auswirkungen auf die Beispiel-Webseite zu sehen.",
-        recommendation:
-          "Barrierefreie Webseiten sollten klar, kontrastreich und verständlich gestaltet sein.",
-        wcag: "WCAG: wahrnehmbar, bedienbar, verständlich",
+        recommendation: "",
+        wcag: "",
       };
 
   return (
@@ -243,9 +242,20 @@ function SimulatorPage() {
         </section>
 
         <aside className="sim-info">
-          <div className="sim-info-icon">{activeInfo.icon}</div>
+          <div className="sim-info-header">
+            <div className="sim-info-icon">
+              {activeInfo.icon}
+            </div>
 
-          <h2>{activeInfo.title}</h2>
+            <div>
+              <h2>{activeInfo.title}</h2>
+
+              <span className="sim-wcag-inline">
+                {activeInfo.wcag}
+              </span>
+            </div>
+          </div>
+
           <p>{activeInfo.text}</p>
 
           <div className="change-box">
@@ -256,11 +266,6 @@ function SimulatorPage() {
           <div className="recommendation-box">
             <strong>Empfehlung</strong>
             <p>{activeInfo.recommendation}</p>
-          </div>
-
-          <div className="wcag-box">
-            <strong>WCAG Bezug</strong>
-            <span>{activeInfo.wcag}</span>
           </div>
         </aside>
       </section>

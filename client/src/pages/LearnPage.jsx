@@ -170,7 +170,7 @@ function LearnPage() {
               </li>
               <li>
                 <FaComments aria-hidden="true" />
-                <span>Placeholder nicht als Ersatz fürs Label nutzen</span>
+                <span>Eingabefelder mit Beschriftungen versehen</span>
               </li>
               <li>
                 <FaCircleNotch aria-hidden="true" />
