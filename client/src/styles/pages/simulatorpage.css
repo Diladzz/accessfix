@@ -413,4 +413,9 @@
   .demo-bottom {
     grid-template-columns: 1fr;
   }
+  .demo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 }

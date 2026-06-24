@@ -47,6 +47,12 @@
   margin-bottom: 1.5rem;
 }
 
+/* Hervorgehobene Karte (WebAIM-Bezug) */
+.learn-card--accent {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary-soft);
+}
+
 .learn-section-title {
   color: var(--color-text);
   font-size: var(--text-xl);
@@ -61,6 +67,7 @@
   margin-bottom: 1.5rem;
 }
 
+/* --- POUR-Prinzipien --- */
 .principles-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -100,29 +107,109 @@
   margin: 0;
 }
 
-.learn-check-list {
+/* --- WebAIM-Zahlen --- */
+.stat-grid {
   display: grid;
-  gap: 0.9rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.learn-check-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
+.stat-item {
+  background: var(--color-surface);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  color: var(--color-primary);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.learn-source {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* --- Level-Vorschau --- */
+.level-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.level-preview {
   background: var(--color-surface-soft);
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-md);
-  padding: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  padding: 1.5rem;
 }
 
-.learn-check-item svg {
+.level-tag {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.level-preview h3 {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.level-preview-intro {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.level-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.level-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.level-points svg {
   color: var(--color-primary);
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
   flex-shrink: 0;
 }
 
+/* --- Call to Action --- */
 .learn-practice-card {
   display: flex;
   align-items: center;
@@ -154,7 +241,9 @@
     padding: 3.5rem 1rem 3rem;
   }
 
-  .principles-grid {
+  .principles-grid,
+  .stat-grid,
+  .level-preview-grid {
     grid-template-columns: 1fr;
   }
 

@@ -10,7 +10,7 @@ import {
 } from "react-icons/fi";
 
 import logo from "../../assets/logo.png";
-import "./navbar.css";
+import "../../styles/layout/navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

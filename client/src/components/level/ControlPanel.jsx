@@ -1,10 +1,26 @@
 import {
-  FiType, FiEye, FiGlobe, FiMaximize2, FiSquare, FiCheck, FiEdit3, FiLayers, FiSun, FiMoon,
+  FiType,
+  FiEye,
+  FiGlobe,
+  FiMaximize2,
+  FiSquare,
+  FiCheck,
+  FiEdit3,
 } from "react-icons/fi";
 
 function ControlPanel({
   selectedElement,
-  setHeaderLight,
+
+  languageExpanded,
+  languageOutline,
+  headingLarge,
+  headingBold,
+  headingWhite,
+  textLarge,
+  textDark,
+  buttonLarge,
+  buttonOutline,
+
   setLanguageExpanded,
   setLanguageOutline,
   setHeadingLarge,
@@ -44,40 +60,48 @@ function ControlPanel({
       )}
 
       {selectedElement === "Header" && (
-        <>
-          <button className="tool-option" onClick={() => setHeaderLight(false)}>
-            <span><FiMoon /></span>
-            <div>
-              <strong>Hintergrund dunkel</strong>
-              <p>Setze den Header dunkel.</p>
-            </div>
-          </button>
+        <button
+          className={`tool-option ${headingWhite ? "active" : ""}`}
+          onClick={() => setHeadingWhite((prev) => !prev)}
+        >
+          <span>
+            <FiEye />
+          </span>
 
-          <button className="tool-option" onClick={() => setHeaderLight(true)}>
-            <span><FiSun /></span>
-            <div>
-              <strong>Hintergrund hell</strong>
-              <p>Setze den Header hell.</p>
-            </div>
-          </button>
-        </>
+          <div>
+            <strong>Schriftfarbe weiß machen</strong>
+            <p>Verbessert den Kontrast auf dem dunklen Hintergrund.</p>
+          </div>
+        </button>
       )}
 
       {selectedElement === "Sprache" && (
         <>
-          <button className="tool-option" onClick={() => setLanguageExpanded(true)}>
-            <span><FiGlobe /></span>
+          <button
+            className={`tool-option ${languageExpanded ? "active" : ""}`}
+            onClick={() => setLanguageExpanded((prev) => !prev)}
+          >
+            <span>
+              <FiGlobe />
+            </span>
+
             <div>
               <strong>Sprache ausschreiben</strong>
-              <p>Nutze verständliche Beschriftungen.</p>
+              <p>Ersetzt Abkürzungen durch verständliche Bezeichnungen.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setLanguageOutline(true)}>
-            <span><FiSquare /></span>
+          <button
+            className={`tool-option ${languageOutline ? "active" : ""}`}
+            onClick={() => setLanguageOutline((prev) => !prev)}
+          >
+            <span>
+              <FiSquare />
+            </span>
+
             <div>
-              <strong>Rand sichtbar machen</strong>
-              <p>Erhöhe die Sichtbarkeit der Buttons.</p>
+              <strong>Sprachbuttons hervorheben</strong>
+              <p>Macht die Auswahl leichter erkennbar.</p>
             </div>
           </button>
         </>
@@ -85,27 +109,45 @@ function ControlPanel({
 
       {selectedElement === "Überschrift" && (
         <>
-          <button className="tool-option" onClick={() => setHeadingLarge(true)}>
-            <span><FiType /></span>
+          <button
+            className={`tool-option ${headingLarge ? "active" : ""}`}
+            onClick={() => setHeadingLarge((prev) => !prev)}
+          >
+            <span>
+              <FiType />
+            </span>
+
             <div>
-              <strong>Textgröße ändern</strong>
-              <p>Mache die Überschrift größer.</p>
+              <strong>Überschrift vergrößern</strong>
+              <p>Verbessert die Wahrnehmbarkeit der Überschrift.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setHeadingBold(true)}>
-            <span><FiEdit3 /></span>
+          <button
+            className={`tool-option ${headingBold ? "active" : ""}`}
+            onClick={() => setHeadingBold((prev) => !prev)}
+          >
+            <span>
+              <FiEdit3 />
+            </span>
+
             <div>
-              <strong>Schrift fetter machen</strong>
-              <p>Erhöhe die Lesbarkeit.</p>
+              <strong>Schriftstärke erhöhen</strong>
+              <p>Macht die Überschrift leichter lesbar.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setHeadingWhite(true)}>
-            <span><FiEye /></span>
+          <button
+            className={`tool-option ${headingWhite ? "active" : ""}`}
+            onClick={() => setHeadingWhite((prev) => !prev)}
+          >
+            <span>
+              <FiEye />
+            </span>
+
             <div>
-              <strong>Kontrast verbessern</strong>
-              <p>Nutze helle Schrift auf dunklem Hintergrund.</p>
+              <strong>Schriftfarbe weiß machen</strong>
+              <p>Verbessert den Kontrast auf dunklem Hintergrund.</p>
             </div>
           </button>
         </>
@@ -113,19 +155,31 @@ function ControlPanel({
 
       {selectedElement === "Text" && (
         <>
-          <button className="tool-option" onClick={() => setTextLarge(true)}>
-            <span><FiType /></span>
+          <button
+            className={`tool-option ${textLarge ? "active" : ""}`}
+            onClick={() => setTextLarge((prev) => !prev)}
+          >
+            <span>
+              <FiType />
+            </span>
+
             <div>
-              <strong>Text vergrößern</strong>
-              <p>Erhöhe die Schriftgröße.</p>
+              <strong>Fließtext vergrößern</strong>
+              <p>Erleichtert das Lesen längerer Texte.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setTextDark(true)}>
-            <span><FiEye /></span>
+          <button
+            className={`tool-option ${textDark ? "active" : ""}`}
+            onClick={() => setTextDark((prev) => !prev)}
+          >
+            <span>
+              <FiEye />
+            </span>
+
             <div>
-              <strong>Kontrast verbessern</strong>
-              <p>Mache den Text dunkler.</p>
+              <strong>Textfarbe abdunkeln</strong>
+              <p>Verbessert die Lesbarkeit des Inhalts.</p>
             </div>
           </button>
         </>
@@ -133,25 +187,31 @@ function ControlPanel({
 
       {selectedElement === "Button" && (
         <>
-          <button className="tool-option" onClick={() => setButtonLarge(true)}>
+          <button
+            className={`tool-option ${buttonLarge ? "active" : ""}`}
+            onClick={() => setButtonLarge((prev) => !prev)}
+          >
             <span>
               <FiMaximize2 />
             </span>
 
             <div>
               <strong>Button vergrößern</strong>
-              <p>Erhöhe die Klickfläche.</p>
+              <p>Vergrößert die nutzbare Klickfläche.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setButtonOutline(true)}>
+          <button
+            className={`tool-option ${buttonOutline ? "active" : ""}`}
+            onClick={() => setButtonOutline((prev) => !prev)}
+          >
             <span>
               <FiSquare />
             </span>
 
             <div>
-              <strong>Rand hinzufügen</strong>
-              <p>Mache den Button deutlicher.</p>
+              <strong>Button hervorheben</strong>
+              <p>Macht die Schaltfläche besser erkennbar.</p>
             </div>
           </button>
         </>

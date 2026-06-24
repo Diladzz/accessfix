@@ -1,0 +1,347 @@
+/* Button rechts oben */
+.access-button svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+.access-button:hover {
+  background-color: #2f4db2;
+}
+
+/* Text beim Hover */
+.access-tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background-color: #1f2d3d;
+  color: white;
+
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.access-button:hover .access-tooltip {
+  opacity: 1;
+}
+
+/* Panel */
+.access-panel {
+  position: fixed;
+  top: 95px;
+  right: 24px;
+  z-index: 10000;
+
+  width: 360px;
+  max-width: calc(100% - 32px);
+
+  background-color: #ffffff;
+  color: #1f2d3d;
+
+  border: 1px solid #d6e6df;
+  border-radius: 24px;
+
+  padding: 1.5rem;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+.access-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.access-panel-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+/* X Button */
+.access-close {
+  width: 52px;
+  height: 52px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #3a5ccc;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  line-height: 1;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.access-close svg {
+  display: block;
+}
+
+.access-close:hover {
+  background-color: #2f4db2;
+}
+
+/* Optionen */
+.access-options {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.access-option,
+.access-reset {
+  border: 1px solid #d6e6df;
+  background-color: #f7fffc;
+  color: #1f2d3d;
+
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.access-option:hover,
+.access-option.active {
+  background-color: #3a5ccc;
+  color: white;
+  border-color: #3a5ccc;
+}
+
+.access-reset {
+  background-color: #eef2f7;
+  text-align: center;
+}
+
+.access-reset:hover {
+  background-color: #dfe7f0;
+}
+
+/* Dunkler Kontrast */
+body.access-dark-contrast {
+  background-color: #0b1220 !important;
+  color: white !important;
+}
+
+body.access-dark-contrast .app-content,
+body.access-dark-contrast main,
+body.access-dark-contrast .home-page {
+  background: #0b1220 !important;
+  color: white !important;
+}
+
+body.access-dark-contrast .home-hero,
+body.access-dark-contrast .learn-hero,
+body.access-dark-contrast .level-hero,
+body.access-dark-contrast .level-one-hero,
+body.access-dark-contrast .result-hero,
+body.access-dark-contrast .simulator-hero,
+body.access-dark-contrast .home-card,
+body.access-dark-contrast .learn-card,
+body.access-dark-contrast .level-card,
+body.access-dark-contrast .preview-card,
+body.access-dark-contrast .control-card,
+body.access-dark-contrast .result-card,
+body.access-dark-contrast .feedback-item,
+body.access-dark-contrast .control-option-box,
+body.access-dark-contrast .principle-item {
+  background: #111827 !important;
+  color: white !important;
+  border-color: #334155 !important;
+}
+
+body.access-dark-contrast h1,
+body.access-dark-contrast h2,
+body.access-dark-contrast h3,
+body.access-dark-contrast h4,
+body.access-dark-contrast h5,
+body.access-dark-contrast p,
+body.access-dark-contrast span,
+body.access-dark-contrast li,
+body.access-dark-contrast strong,
+body.access-dark-contrast a {
+  color: white !important;
+}
+
+body.access-dark-contrast .btn-primary {
+  background-color: #3a5ccc !important;
+  border-color: #3a5ccc !important;
+  color: white !important;
+}
+
+body.access-dark-contrast .btn-secondary {
+  background-color: #4b5563 !important;
+  border-color: #4b5563 !important;
+  color: white !important;
+}
+
+body.access-dark-contrast .btn-outline-secondary,
+body.access-dark-contrast .result-btn-secondary {
+  background-color: transparent !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+body.access-dark-contrast .navbar,
+body.access-dark-contrast footer {
+  background-color: #0f172a !important;
+  color: white !important;
+}
+
+/* Panel im dunklen Kontrast */
+body.access-dark-contrast .access-panel {
+  background-color: #111827 !important;
+  color: white !important;
+  border-color: #334155 !important;
+}
+
+body.access-dark-contrast .access-panel h2 {
+  color: white !important;
+}
+
+body.access-dark-contrast .access-option,
+body.access-dark-contrast .access-reset {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+}
+
+body.access-dark-contrast .access-option:hover,
+body.access-dark-contrast .access-option.active {
+  background-color: #3a5ccc !important;
+  color: white !important;
+}
+
+/* Monochrom */
+/* Overlay macht die Seite grau, ohne fixed/sticky kaputt zu machen */
+body.access-monochrome::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  backdrop-filter: grayscale(100%);
+}
+
+/* Eingabehilfen müssen über dem Overlay liegen */
+.access-button {
+  z-index: 10000;
+}
+
+.access-panel {
+  z-index: 10001;
+}
+
+/* Links hervorheben */
+body.access-highlight-links a {
+  outline: 2px solid #005fcc;
+  outline-offset: 3px;
+  text-decoration: underline !important;
+}
+
+/* normale Links werden blau */
+body.access-highlight-links a:not(.btn):not(.navbar-brand):not(.nav-link) {
+  color: #005fcc !important;
+}
+
+/* Button-Schrift bleibt lesbar */
+body.access-highlight-links a.btn,
+body.access-highlight-links .btn-primary {
+  color: white !important;
+}
+
+body.access-highlight-links .btn-outline-secondary,
+body.access-highlight-links .result-btn-secondary {
+  color: inherit !important;
+}
+
+/* Überschriften hervorheben */
+body.access-highlight-headings h1,
+body.access-highlight-headings h2,
+body.access-highlight-headings h3 {
+  outline: 3px solid #3a5ccc;
+  outline-offset: 6px;
+  background-color: #eef4ff;
+}
+
+body.access-dark-contrast.access-highlight-headings h1,
+body.access-dark-contrast.access-highlight-headings h2,
+body.access-dark-contrast.access-highlight-headings h3 {
+  background-color: #1f2937 !important;
+  outline-color: #60a5fa;
+}
+
+/* Schriftgröße vergrößern */
+/* große Hero-Texte wie AccessFix und home-lead werden nicht verändert */
+body.access-large-text .home-text,
+body.access-large-text .home-note,
+body.access-large-text .home-card p,
+body.access-large-text .learn-text,
+body.access-large-text .level-text,
+body.access-large-text .result-text,
+body.access-large-text .feedback-item,
+body.access-large-text .level-card-text,
+body.access-large-text .learn-list li,
+body.access-large-text .principle-item p,
+body.access-large-text .control-option-box p,
+body.access-large-text .helper-text,
+body.access-large-text li {
+  font-size: 1.2em !important;
+  line-height: 1.9 !important;
+}
+
+/* Buttons größer machen */
+body.access-large-text button,
+body.access-large-text .btn {
+  font-size: 1.1em !important;
+}
+
+/* normale Links größer, aber Navbar bleibt gleich */
+body.access-large-text a:not(.navbar-brand):not(.nav-link):not(.btn) {
+  font-size: 1.15em !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .access-button {
+    top: 82px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+  }
+
+  .access-panel {
+    top: 82px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+
+  .access-tooltip {
+    display: none;
+  }
+
+  body.access-monochrome .access-panel {
+    top: 82px !important;
+    right: 16px !important;
+    left: 16px !important;
+  }
+}

@@ -112,7 +112,17 @@ function LevelOnePage() {
         controls={
           <ControlPanel
             selectedElement={selectedElement}
-            setHeaderLight={setHeaderLight}
+
+            languageExpanded={languageExpanded}
+            languageOutline={languageOutline}
+            headingLarge={headingLarge}
+            headingBold={headingBold}
+            headingWhite={headingWhite}
+            textLarge={textLarge}
+            textDark={textDark}
+            buttonLarge={buttonLarge}
+            buttonOutline={buttonOutline}
+
             setLanguageExpanded={setLanguageExpanded}
             setLanguageOutline={setLanguageOutline}
             setHeadingLarge={setHeadingLarge}

@@ -7,7 +7,6 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
-import FloatingBackground from "../components/effects/FloatingBackground";
 import "../styles/pages/resultpage.css";
 
 function ResultPage() {
@@ -30,7 +29,6 @@ function ResultPage() {
 
   return (
     <main className="result-page">
-      <FloatingBackground />
 
       <section className="result-header">
         <h1>Dein Ergebnis</h1>

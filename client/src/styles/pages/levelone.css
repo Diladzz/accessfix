@@ -166,6 +166,12 @@
 
 .fake-page-content {
   padding: 2rem 1.5rem;
+  cursor: pointer;
+}
+
+.fake-page-content h3,
+.fake-page-content p {
+  cursor: pointer;
 }
 
 .fake-page-content p {
@@ -343,6 +349,17 @@
   margin: 0.25rem 0 0;
 }
 
+/* aktive option: zeigt an, welche verbesserung gerade eingeschaltet ist */
+.tool-option.active {
+  border-color: #3a5ccc;
+  background-color: #eef4ff;
+}
+
+.tool-option.active span {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
 .control-panel-actions {
   margin-top: 1.5rem;
 }
@@ -382,6 +399,7 @@
   width: fit-content;
   max-width: 900px;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 /* tablet */
@@ -418,5 +436,15 @@
   .fake-url {
     min-width: 0;
     width: 100%;
+  }
+
+  .result-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .result-actions .btn {
+    flex: 1;
   }
 }

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import AccessibilityWidget from "./components/layout/AccessibilityWidget";
 
 import HomePage from "./pages/HomePage";
 import LearnPage from "./pages/LearnPage";
@@ -16,20 +17,25 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-
       <ScrollToTop />
-      <Navbar />
-      
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/lernen" element={<LearnPage />} />
-        <Route path="/level" element={<LevelPage />} />
-        <Route path="/level/1" element={<LevelOnePage />} />
-        <Route path="/ergebnis" element={<ResultPage />} />
-        <Route path="/level/2" element={<LevelTwoPage />} />
-        <Route path="/simulator" element={<SimulatorPage />} />
-      </Routes>
-      <Footer />
+
+      <AccessibilityWidget />
+
+      <main className="app-content">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/lernen" element={<LearnPage />} />
+          <Route path="/level" element={<LevelPage />} />
+          <Route path="/level/1" element={<LevelOnePage />} />
+          <Route path="/ergebnis" element={<ResultPage />} />
+          <Route path="/level/2" element={<LevelTwoPage />} />
+          <Route path="/simulator" element={<SimulatorPage />} />
+        </Routes>
+
+        <Footer />
+      </main>
     </BrowserRouter>
   );
 }

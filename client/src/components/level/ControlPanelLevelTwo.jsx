@@ -11,6 +11,15 @@ import {
 
 function ControlPanelLevelTwo({
   selectedElement,
+
+  labelsVisible,
+  requiredVisible,
+  focusVisible,
+  errorClear,
+  passwordHint,
+  checkboxLarge,
+  buttonClear,
+
   setLabelsVisible,
   setRequiredVisible,
   setFocusVisible,
@@ -49,89 +58,110 @@ function ControlPanelLevelTwo({
 
       {selectedElement === "Name" && (
         <>
-          <button className="tool-option" onClick={() => setLabelsVisible(true)}>
+          <button
+            className={`tool-option ${labelsVisible ? "active" : ""}`}
+            onClick={() => setLabelsVisible((prev) => !prev)}
+          >
             <span>
               <FiTag />
             </span>
 
             <div>
               <strong>Label hinzufügen</strong>
-              <p>Zeige feste Beschriftungen über den Feldern.</p>
+              <p>Zeigt feste Beschriftungen über den Eingabefeldern.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setRequiredVisible(true)}>
+          <button
+            className={`tool-option ${requiredVisible ? "active" : ""}`}
+            onClick={() => setRequiredVisible((prev) => !prev)}
+          >
             <span>
               <FiAlertCircle />
             </span>
 
             <div>
               <strong>Pflichtfelder markieren</strong>
-              <p>Kennzeichne wichtige Felder mit einem Stern.</p>
+              <p>Kennzeichnet notwendige Eingaben deutlich.</p>
             </div>
           </button>
 
-          <button className="tool-option" onClick={() => setFocusVisible(true)}>
+          <button
+            className={`tool-option ${focusVisible ? "active" : ""}`}
+            onClick={() => setFocusVisible((prev) => !prev)}
+          >
             <span>
               <FiEye />
             </span>
 
             <div>
               <strong>Fokus sichtbar machen</strong>
-              <p>Zeige aktive Felder deutlicher an.</p>
+              <p>Macht die aktuelle Auswahl besser erkennbar.</p>
             </div>
           </button>
         </>
       )}
 
       {selectedElement === "E-Mail" && (
-        <button className="tool-option" onClick={() => setErrorClear(true)}>
+        <button
+          className={`tool-option ${errorClear ? "active" : ""}`}
+          onClick={() => setErrorClear((prev) => !prev)}
+        >
           <span>
             <FiAlertCircle />
           </span>
 
           <div>
             <strong>Fehlermeldung verbessern</strong>
-            <p>Erkläre den Fehler verständlich.</p>
+            <p>Erklärt den Fehler verständlicher.</p>
           </div>
         </button>
       )}
 
       {selectedElement === "Passwort" && (
-        <button className="tool-option" onClick={() => setPasswordHint(true)}>
+        <button
+          className={`tool-option ${passwordHint ? "active" : ""}`}
+          onClick={() => setPasswordHint((prev) => !prev)}
+        >
           <span>
             <FiInfo />
           </span>
 
           <div>
             <strong>Passwort-Hinweis ergänzen</strong>
-            <p>Erkläre die Anforderungen an das Passwort.</p>
+            <p>Zeigt die Passwortregeln direkt an.</p>
           </div>
         </button>
       )}
 
       {selectedElement === "Checkbox" && (
-        <button className="tool-option" onClick={() => setCheckboxLarge(true)}>
+        <button
+          className={`tool-option ${checkboxLarge ? "active" : ""}`}
+          onClick={() => setCheckboxLarge((prev) => !prev)}
+        >
           <span>
             <FiCheckSquare />
           </span>
 
           <div>
             <strong>Checkbox vergrößern</strong>
-            <p>Erhöhe die Klickfläche.</p>
+            <p>Vergrößert die nutzbare Klickfläche.</p>
           </div>
         </button>
       )}
 
       {selectedElement === "Button" && (
-        <button className="tool-option" onClick={() => setButtonClear(true)}>
+        <button
+          className={`tool-option ${buttonClear ? "active" : ""}`}
+          onClick={() => setButtonClear((prev) => !prev)}
+        >
           <span>
             <FiMousePointer />
           </span>
 
           <div>
             <strong>Button verbessern</strong>
-            <p>Mache den Button deutlicher erkennbar.</p>
+            <p>Macht die Aktion leichter verständlich.</p>
           </div>
         </button>
       )}

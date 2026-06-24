@@ -76,6 +76,16 @@
   font-weight: 800;
 }
 
+.tool-option.active {
+  border-color: #3a5ccc;
+  background-color: #eef4ff;
+}
+
+.tool-option.active span {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
 /* fehler */
 .register-error {
   color: var(--color-danger);

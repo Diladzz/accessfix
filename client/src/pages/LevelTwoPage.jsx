@@ -114,6 +114,15 @@ function LevelTwoPage() {
         controls={
           <ControlPanelLevelTwo
             selectedElement={selectedElement}
+
+            labelsVisible={labelsVisible}
+            requiredVisible={requiredVisible}
+            focusVisible={focusVisible}
+            errorClear={errorClear}
+            passwordHint={passwordHint}
+            checkboxLarge={checkboxLarge}
+            buttonClear={buttonClear}
+
             setLabelsVisible={setLabelsVisible}
             setRequiredVisible={setRequiredVisible}
             setFocusVisible={setFocusVisible}
