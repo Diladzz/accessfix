@@ -96,7 +96,7 @@ function LearnPage() {
           Der jährliche WebAIM Million Report untersucht die Startseiten der
           meistbesuchten Webseiten automatisiert auf Verstöße gegen die WCAG.
           Zwei Fehler treten dabei seit Jahren am häufigsten auf: und genau
-          diese übst du in den Levels:
+          diese übst du in den Levels.
         </p>
 
         <div className="stat-grid">
