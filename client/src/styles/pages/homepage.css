@@ -324,4 +324,8 @@
   .home-info-btn {
     width: 100%;
   }
+
+  .home-card-line {
+    margin-top: 20px;
+  }
 }
