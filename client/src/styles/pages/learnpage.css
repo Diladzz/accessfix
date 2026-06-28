@@ -209,7 +209,7 @@
   flex-shrink: 0;
 }
 
-/* --- Call to Action --- */
+/* Call to Action*/
 .learn-practice-card {
   display: flex;
   align-items: center;
@@ -235,6 +235,8 @@
   font-size: var(--text-sm);
   line-height: 1.6;
 }
+
+
 
 @media (max-width: 768px) {
   .learn-page {

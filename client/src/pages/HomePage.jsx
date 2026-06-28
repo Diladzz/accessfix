@@ -5,7 +5,7 @@ import {
   FaTrophy,
   FaShieldAlt,
   FaArrowRight,
-  FaUsers,
+  FaEye,
 } from "react-icons/fa";
 import "../styles/pages/homepage.css";
 
@@ -13,7 +13,6 @@ function HomePage() {
   return (
     <main className="home-page">
       <section className="home-hero">
-
         <h1 className="home-title">AccessFix</h1>
 
         <p className="home-lead">
@@ -37,7 +36,7 @@ function HomePage() {
       </section>
 
       <section className="home-cards" aria-label="Was du mit AccessFix lernst">
-        <article className="home-card">
+        <Link to="/lernen" className="home-card home-card-blue">
           <div className="home-card-icon home-card-icon-blue">
             <FaBookOpen />
           </div>
@@ -47,9 +46,9 @@ function HomePage() {
           <p>Verstehe die Grundlagen der Web-Barrierefreiheit und WCAG.</p>
 
           <span className="home-card-line home-card-line-blue" />
-        </article>
+        </Link>
 
-        <article className="home-card">
+        <Link to="/level" className="home-card home-card-green">
           <div className="home-card-icon home-card-icon-green">
             <FaBullseye />
           </div>
@@ -59,9 +58,9 @@ function HomePage() {
           <p>Analysiere echte Webseiten-Probleme und löse interaktive Aufgaben.</p>
 
           <span className="home-card-line home-card-line-green" />
-        </article>
+        </Link>
 
-        <article className="home-card">
+        <Link to="/level/1" className="home-card home-card-purple">
           <div className="home-card-icon home-card-icon-purple">
             <FaTrophy />
           </div>
@@ -71,9 +70,23 @@ function HomePage() {
           <p>Setze barrierefreie Verbesserungen um und erhalte direktes Feedback.</p>
 
           <span className="home-card-line home-card-line-purple" />
-        </article>
-      </section>
+        </Link>
 
+        <Link to="/simulator" className="home-card home-card-orange">
+          <div className="home-card-icon home-card-icon-orange">
+            <FaEye />
+          </div>
+
+          <h2>Nachempfinden</h2>
+
+          <p>
+            Erlebe mit dem Simulator, wie Menschen mit visuellen Einschränkungen
+            Webseiten wahrnehmen.
+          </p>
+
+          <span className="home-card-line home-card-line-orange" />
+        </Link>
+      </section>
     </main>
   );
 }

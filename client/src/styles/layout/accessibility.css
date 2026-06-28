@@ -3,7 +3,7 @@
   position: fixed;
   top: 95px;
   right: 24px;
-  z-index: 9999;
+  z-index: 10000;
 
   width: 58px;
   height: 58px;
@@ -11,7 +11,7 @@
   border-radius: 50%;
 
   background-color: #3a5ccc;
-  color: white;
+  color: #ffffff;
 
   display: flex;
   align-items: center;
@@ -26,6 +26,12 @@
   background-color: #2f4db2;
 }
 
+.access-button svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
 /* Text beim Hover */
 .access-tooltip {
   position: absolute;
@@ -34,7 +40,7 @@
   transform: translateY(-50%);
 
   background-color: #1f2d3d;
-  color: white;
+  color: #ffffff;
 
   padding: 0.45rem 0.75rem;
   border-radius: 8px;
@@ -57,7 +63,7 @@
   position: fixed;
   top: 95px;
   right: 24px;
-  z-index: 10000;
+  z-index: 10001;
 
   width: 360px;
   max-width: calc(100% - 32px);
@@ -95,7 +101,7 @@
   border-radius: 50%;
 
   background-color: #3a5ccc;
-  color: white;
+  color: #ffffff;
 
   display: flex;
   align-items: center;
@@ -109,6 +115,8 @@
 
 .access-close svg {
   display: block;
+  width: 20px;
+  height: 20px;
 }
 
 .access-close:hover {
@@ -138,7 +146,7 @@
 .access-option:hover,
 .access-option.active {
   background-color: #3a5ccc;
-  color: white;
+  color: #ffffff;
   border-color: #3a5ccc;
 }
 
@@ -154,36 +162,282 @@
 /* Dunkler Kontrast */
 body.access-dark-contrast {
   background-color: #0b1220 !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
+/* Hauptflächen */
 body.access-dark-contrast .app-content,
 body.access-dark-contrast main,
-body.access-dark-contrast .home-page {
+body.access-dark-contrast .home-page,
+body.access-dark-contrast .learn-page,
+body.access-dark-contrast .level-page,
+body.access-dark-contrast .level-page-shell,
+body.access-dark-contrast .result-page,
+body.access-dark-contrast .simulator-page {
   background: #0b1220 !important;
-  color: white !important;
+  background-color: #0b1220 !important;
+  color: #ffffff !important;
 }
 
+/* Navbar und Footer */
+body.access-dark-contrast .navbar,
+body.access-dark-contrast footer {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+/* Hero Bereiche ohne extra Balken */
 body.access-dark-contrast .home-hero,
 body.access-dark-contrast .learn-hero,
 body.access-dark-contrast .level-hero,
-body.access-dark-contrast .level-one-hero,
-body.access-dark-contrast .result-hero,
-body.access-dark-contrast .simulator-hero,
+body.access-dark-contrast .level-hero-box,
+body.access-dark-contrast .simulator-header {
+  background: #0b1220 !important;
+  background-color: #0b1220 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Allgemeine Karten */
 body.access-dark-contrast .home-card,
 body.access-dark-contrast .learn-card,
 body.access-dark-contrast .level-card,
 body.access-dark-contrast .preview-card,
 body.access-dark-contrast .control-card,
 body.access-dark-contrast .result-card,
-body.access-dark-contrast .feedback-item,
+body.access-dark-contrast .level-topbar,
+body.access-dark-contrast .level-hint-box,
+body.access-dark-contrast .principle-item,
+body.access-dark-contrast .selected-element-box,
 body.access-dark-contrast .control-option-box,
-body.access-dark-contrast .principle-item {
+body.access-dark-contrast .tool-option {
   background: #111827 !important;
-  color: white !important;
+  background-color: #111827 !important;
+  color: #ffffff !important;
   border-color: #334155 !important;
 }
 
+body.access-dark-contrast .home-hero,
+body.access-dark-contrast .learn-hero,
+body.access-dark-contrast .level-hero,
+body.access-dark-contrast .level-hero-box,
+body.access-dark-contrast .simulator-header {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Lernseite: weiße Boxen dunkeln */
+body.access-dark-contrast .learn-page section,
+body.access-dark-contrast .learn-page article,
+body.access-dark-contrast .learn-section,
+body.access-dark-contrast .learn-box,
+body.access-dark-contrast .learn-info,
+body.access-dark-contrast .learn-stat,
+body.access-dark-contrast .learn-stat-card,
+body.access-dark-contrast .learn-topic-card,
+body.access-dark-contrast .learn-level-card,
+body.access-dark-contrast .learn-info-card,
+body.access-dark-contrast .learn-feature-card,
+body.access-dark-contrast .learn-practice-card,
+body.access-dark-contrast .learn-cta,
+body.access-dark-contrast .cta-box,
+body.access-dark-contrast .practice-cta,
+body.access-dark-contrast .stat-card,
+body.access-dark-contrast .level-preview-card,
+body.access-dark-contrast .info-card,
+body.access-dark-contrast .topic-card,
+body.access-dark-contrast .practice-card {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+/* Lernseite: innere helle Statistik-Kästen */
+body.access-dark-contrast .learn-page .card,
+body.access-dark-contrast .learn-page .row > div,
+body.access-dark-contrast .learn-page .row > div > div,
+body.access-dark-contrast .learn-page [class*="card"],
+body.access-dark-contrast .learn-page [class*="box"],
+body.access-dark-contrast .learn-page [class*="stat"],
+body.access-dark-contrast .learn-page [class*="level"] {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+/* kleine Level 1 / Level 2 Badges */
+body.access-dark-contrast .level-tag,
+body.access-dark-contrast .level-badge,
+body.access-dark-contrast .level-chip,
+body.access-dark-contrast .page-badge,
+body.access-dark-contrast .level-card-badge,
+body.access-dark-contrast .learn-badge,
+body.access-dark-contrast .home-badge {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+  border: 1px solid #64748b !important;
+}
+
+/* Level Bilder-Hintergründe */
+body.access-dark-contrast .level-image-box,
+body.access-dark-contrast .level-image-wrap,
+body.access-dark-contrast .level-card-image,
+body.access-dark-contrast .level-card-img,
+body.access-dark-contrast .level-card figure,
+body.access-dark-contrast .level-card picture,
+body.access-dark-contrast .level-card .col-lg-5,
+body.access-dark-contrast .level-card .col-md-5 {
+  background: #1f2937 !important;
+  background-color: #1f2937 !important;
+}
+
+/* Fake Webseite Level 1 */
+body.access-dark-contrast .fake-browser,
+body.access-dark-contrast .fake-browser-bar,
+body.access-dark-contrast .fake-url,
+body.access-dark-contrast .fake-page,
+body.access-dark-contrast .fake-page-content {
+  background-color: #0b1220 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+body.access-dark-contrast .fake-page-header,
+body.access-dark-contrast .fake-header-dark,
+body.access-dark-contrast .fake-header-light {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+}
+
+/* Level 2 Registrierungsbereich */
+body.access-dark-contrast .register-page,
+body.access-dark-contrast .register-preview,
+body.access-dark-contrast .register-preview-page,
+body.access-dark-contrast .register-background,
+body.access-dark-contrast .broken-register-preview,
+body.access-dark-contrast .broken-register-page,
+body.access-dark-contrast .form-preview-area,
+body.access-dark-contrast .preview-area,
+body.access-dark-contrast .fake-register-page,
+body.access-dark-contrast .fake-register-content,
+body.access-dark-contrast .register-content {
+  background-color: #0b1220 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+body.access-dark-contrast .register-card,
+body.access-dark-contrast .register-form,
+body.access-dark-contrast .form-preview,
+body.access-dark-contrast .broken-register {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+body.access-dark-contrast input,
+body.access-dark-contrast textarea,
+body.access-dark-contrast select {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+/* Ergebnis-Seite */
+body.access-dark-contrast .feedback-item {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+body.access-dark-contrast .feedback-success {
+  background-color: #052e2b !important;
+  border-color: #047857 !important;
+  color: #d1fae5 !important;
+}
+
+body.access-dark-contrast .feedback-error {
+  background-color: #3b0d0d !important;
+  border-color: #b91c1c !important;
+  color: #fee2e2 !important;
+}
+
+body.access-dark-contrast .feedback-success .feedback-icon {
+  background-color: #064e3b !important;
+  color: #d1fae5 !important;
+}
+
+body.access-dark-contrast .feedback-error .feedback-icon {
+  background-color: #7f1d1d !important;
+  color: #fee2e2 !important;
+}
+
+body.access-dark-contrast .feedback-icon svg {
+  color: currentColor !important;
+}
+
+/* Prozentzahl bleibt dunkel lesbar */
+body.access-dark-contrast .score-low span,
+body.access-dark-contrast .score-medium span,
+body.access-dark-contrast .score-high span,
+body.access-dark-contrast .score-circle span {
+  color: #1e293b !important;
+}
+
+/* Simulator dunkel */
+body.access-dark-contrast .simulator-panel,
+body.access-dark-contrast .sim-preview,
+body.access-dark-contrast .sim-info,
+body.access-dark-contrast .demo-site,
+body.access-dark-contrast .demo-nav,
+body.access-dark-contrast .demo-content,
+body.access-dark-contrast .change-box,
+body.access-dark-contrast .recommendation-box,
+body.access-dark-contrast .wcag-box,
+body.access-dark-contrast .sim-option {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+body.access-dark-contrast .plant-card {
+  background-color: #1f2937 !important;
+}
+
+body.access-dark-contrast .sim-info-icon,
+body.access-dark-contrast .selected-icon,
+body.access-dark-contrast .tool-option span,
+body.access-dark-contrast .home-card-icon {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+}
+
+body.access-dark-contrast .benefit-icon {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border: 1px solid #475569 !important;
+}
+
+body.access-dark-contrast .benefit-green svg,
+body.access-dark-contrast .benefit-red svg,
+body.access-dark-contrast .benefit-yellow svg {
+  color: #ffffff !important;
+}
+
+body.access-dark-contrast .demo-bottom > div {
+  color: #ffffff !important;
+}
+
+body.access-dark-contrast .demo-text > button {
+  background-color: #3a5ccc !important;
+  color: #ffffff !important;
+}
+
+/* Texte */
 body.access-dark-contrast h1,
 body.access-dark-contrast h2,
 body.access-dark-contrast h3,
@@ -193,61 +447,68 @@ body.access-dark-contrast p,
 body.access-dark-contrast span,
 body.access-dark-contrast li,
 body.access-dark-contrast strong,
-body.access-dark-contrast a {
-  color: white !important;
+body.access-dark-contrast label,
+body.access-dark-contrast .result-text,
+body.access-dark-contrast .helper-text,
+body.access-dark-contrast .control-panel-text,
+body.access-dark-contrast .level-topbar-text p,
+body.access-dark-contrast .home-text,
+body.access-dark-contrast .learn-text,
+body.access-dark-contrast .simulator-note {
+  color: #ffffff !important;
 }
 
+/* Normale Links im dunklen Modus */
+body.access-dark-contrast a:not(.btn):not(.navbar-brand):not(.nav-link) {
+  color: #93c5fd !important;
+}
+
+/* Buttons im dunklen Modus */
 body.access-dark-contrast .btn-primary {
   background-color: #3a5ccc !important;
   border-color: #3a5ccc !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.access-dark-contrast .btn-secondary {
   background-color: #4b5563 !important;
   border-color: #4b5563 !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.access-dark-contrast .btn-outline-secondary,
-body.access-dark-contrast .result-btn-secondary {
+body.access-dark-contrast .result-btn-secondary,
+body.access-dark-contrast .level-exit-btn {
   background-color: transparent !important;
-  color: white !important;
-  border-color: white !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
 }
 
-body.access-dark-contrast .navbar,
-body.access-dark-contrast footer {
-  background-color: #0f172a !important;
-  color: white !important;
-}
-
-/* Panel im dunklen Kontrast */
+/* Eingabehilfen Panel im dunklen Modus */
 body.access-dark-contrast .access-panel {
   background-color: #111827 !important;
-  color: white !important;
+  color: #ffffff !important;
   border-color: #334155 !important;
 }
 
 body.access-dark-contrast .access-panel h2 {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 body.access-dark-contrast .access-option,
 body.access-dark-contrast .access-reset {
   background-color: #1f2937 !important;
-  color: white !important;
+  color: #ffffff !important;
   border-color: #4b5563 !important;
 }
 
 body.access-dark-contrast .access-option:hover,
 body.access-dark-contrast .access-option.active {
   background-color: #3a5ccc !important;
-  color: white !important;
+  color: #ffffff !important;
 }
 
 /* Monochrom */
-/* Overlay färbt alles grau, ohne fixed kaputt zu machen */
 body.access-monochrome::before {
   content: "";
   position: fixed;
@@ -257,16 +518,6 @@ body.access-monochrome::before {
   backdrop-filter: grayscale(100%);
 }
 
-/* Panel und Button bleiben über dem Overlay */
-.access-button {
-  z-index: 10000;
-}
-
-.access-panel {
-  z-index: 10001;
-}
-
-/* Panel selbst auch monochrom machen */
 body.access-monochrome .access-panel,
 body.access-monochrome .access-button {
   filter: grayscale(100%);
@@ -279,20 +530,35 @@ body.access-highlight-links a {
   text-decoration: underline !important;
 }
 
-/* normale Links werden blau */
-body.access-highlight-links a:not(.btn):not(.navbar-brand):not(.nav-link) {
+/* Nur normale Textlinks blau färben */
+body.access-highlight-links a:not(.btn):not(.navbar-brand):not(.nav-link):not(.result-btn-secondary):not(.level-exit-btn) {
   color: #005fcc !important;
 }
 
-/* Button-Schrift bleibt lesbar */
-body.access-highlight-links a.btn,
+/* Primary Buttons bleiben weiß */
+body.access-highlight-links a.btn-primary,
 body.access-highlight-links .btn-primary {
-  color: white !important;
+  color: #ffffff !important;
 }
 
-body.access-highlight-links .btn-outline-secondary,
-body.access-highlight-links .result-btn-secondary {
-  color: inherit !important;
+/* Helle/sekundäre Buttons behalten dunkle Schrift */
+body.access-highlight-links a.result-btn-secondary,
+body.access-highlight-links .result-btn-secondary,
+body.access-highlight-links a.level-exit-btn,
+body.access-highlight-links .level-exit-btn,
+body.access-highlight-links a.btn:not(.btn-primary),
+body.access-highlight-links .btn:not(.btn-primary) {
+  color: #0f172a !important;
+}
+
+/* Im dunklen Kontrast dürfen sekundäre Buttons weiß sein */
+body.access-dark-contrast.access-highlight-links a.result-btn-secondary,
+body.access-dark-contrast.access-highlight-links .result-btn-secondary,
+body.access-dark-contrast.access-highlight-links a.level-exit-btn,
+body.access-dark-contrast.access-highlight-links .level-exit-btn,
+body.access-dark-contrast.access-highlight-links a.btn:not(.btn-primary),
+body.access-dark-contrast.access-highlight-links .btn:not(.btn-primary) {
+  color: #ffffff !important;
 }
 
 /* Überschriften hervorheben */
@@ -319,6 +585,11 @@ body.access-dark-contrast.access-highlight-headings h3 {
     width: 52px;
     height: 52px;
     font-size: 1.6rem;
+  }
+
+  .access-button svg {
+    width: 34px;
+    height: 34px;
   }
 
   .access-panel {
