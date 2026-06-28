@@ -186,8 +186,7 @@ function SimulatorPage() {
                 </h2>
 
                 <p>
-                  Entdecke umweltfreundliche Produkte und erlebe, warum gute
-                  Kontraste und klare Beschriftungen wichtig sind.
+                  Entdecke umweltfreundliche Produkte und lerne, warum sie so wichtig für unsere Erde sind.
                 </p>
 
                 <div className="benefit-row">
