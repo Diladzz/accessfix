@@ -100,8 +100,8 @@ function ResultPage() {
             Zum nächsten Level
           </Link>
         ) : (
-          <Link to="/" className="btn result-btn-secondary">
-            Zur Startseite
+          <Link to="/simulator" className="btn result-btn-secondary">
+            Zum Simulator
           </Link>
         )}
       </div>
